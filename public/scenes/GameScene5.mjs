@@ -25,7 +25,7 @@ export class GameScene5 extends BaseScene {
         super.preload();
 
         //map
-        this.load.image('map5', './assets/map/map_christmas_room_5.jpg');
+        this.load.image('map5', './assets/map/map_christmas_factory_5.jpg');
     }
 
     create(data) {
@@ -82,9 +82,9 @@ export class GameScene5 extends BaseScene {
     }
 
     createUnWalkedObjects() {
-        this.matter.add.fromVertices(951, 795 + 624, '153.5 1082.5 153.5 1247 1 1247 1 1 1901 1 1901 739 1229 739 1229 641 1064.5 388 1147 338 1213 408 1213 338 1315.5 338 1315.5 424 1368.5 424 1368.5 348 1486 348 1486 424 1797 424 1797 348 1646.5 326 1586 278 1558 219.5 1570 127.5 1413.5 127.5 1413.5 155.5 1213 155.5 1213 261.5 1132.5 278 1094.5 237.5 1094.5 179.5 745.5 179.5 745.5 261.5 663.5 261.5 641 219.5 611 207.5 611 127.5 298 127.5 298 207.5 282 348 171.5 388 171.5 438.5 224 484.5 224 556.5 171.5 605 171.5 813.5 400.5 705 400.5 544.5 559 544.5 559 721 717.5 813.5 717.5 847.5 745.5 847.5 745.5 1034 625 1034 625 986 468.5 986 468.5 847.5 298 847.5 298 942 358.5 942 358.5 1082.5 153.5 1082.5', { isStatic: true }, true)
-        this.matter.add.fromVertices(1754.5 + 140.5, 1366.5 + 341, '1.5 610.5 95.5 681 280 681 280 0.5 232 0.5 232 171 214 267.5 136 255.5 53.5 384 13.5 490 1.5 610.5', { isStatic: true }, true)
-        this.matter.add.fromVertices(1500 + 65, 1706.5 + 87, '12.5 28 1 157.5 65.5 172.5 128.5 136.5 117 28 65.5 1.5', { isStatic: true }, true)
+        this.matter.add.fromVertices(650, 1390, '549 1298.5 549 1354 0.5 1354 0.5 0.5 1687 0.5 1687 169.5 1255 169.5 1255 263 1174.5 263 1150 277.5 1115.5 277.5 1097.5 268 1071.5 246 1071.5 219.5 1056.5 219.5 1019 230.5 987 219.5 987 174.5 819 174.5 819 219.5 713 219.5 693 208 666 219.5 626 219.5 606 208 606 182 448.5 182 448.5 230.5 442 257.5 408.5 277.5 369.5 277.5 340 257.5 340 182 195.5 182 184.5 199.5 91 199.5 91 537 108 520 131 520 154.5 537 166 580 146 609.5 91 615.5 91 749 100.5 770 349.5 770 357 749 357 703 385.5 703 385.5 435 420 435 460 417 488.5 430 559.5 430 577.5 456 577.5 668 559.5 677.5 559.5 703 584 727 584 754.5 639.5 754.5 639.5 770 708 770 708 742 721.5 734.5 751 777.5 751 951 650 951 645 995 363.5 995 349.5 980 91 980 91 1065.5 628 1065.5 628 1272.5 158.5 1272.5 190 1310 223.5 1335 261.5 1343.5 312 1343.5 342.5 1327 373 1343.5 415 1343.5 434.5 1321.5 461 1310 489.5 1310 521 1321.5 537.5 1298.5 549 1298.5', { isStatic: true }, true)
+        this.matter.add.fromVertices(1493 + 210, 877.5 + 589.5, '156.5 1124 120 1178 459 1168 444 0.5 317 0.5 328 387 251.5 387 243 351.5 206 344.5 206 307.5 218 293 218 265 192.5 256 172 273.5 1 273.5 1 293 1 335 12 344.5 61.5 344.5 61.5 472.5 76.5 488 218 488 218 770 180.5 770 180.5 687 110.5 681.5 94 693.5 94 760 103 779.5 83.5 779.5 83.5 863 236.5 863 236.5 770 282.5 770 315 760 315 986.5 266 1028 211 1079.5 156.5 1124', { isStatic: true }, true)
+        this.matter.add.fromVertices(1215 + 132.5, 1030 + 262.5, '51 524 31 498.5 31 338 9.5 338 1 223 1 118 31 94 31 23.5 110 23.5 133 0.5 217 0.5 217 30.5 232.5 39 232.5 188.5 256.5 188.5 264 205 256.5 230 232.5 230 232.5 280 264 304 256.5 338 232.5 338 232.5 498.5 210 524 51 524', { isStatic: true }, true)
     }
 
     createPlayers(players, cameraMargin) {
@@ -109,7 +109,7 @@ export class GameScene5 extends BaseScene {
         highlightGraphics.lineStyle(2, 0x06ff01, 1);
         highlightGraphics.setDepth(0);
 
-        const backDoor = this.matter.add.fromVertices(841.5 + 197.5, 1938.5 + 53, '0.5 0.5 0.5 105 394 105 394 0.5', {
+        const backDoor = this.matter.add.fromVertices(854.5 + 193.5, 2012.5 + 17.5, '0.5 0.5 0.5 34 386.5 34 386.5 0.5', {
             label: `${LABEL_ID.DOOR_BACK_ID}`,
             isStatic: true,
             isSensor: true
@@ -125,27 +125,47 @@ export class GameScene5 extends BaseScene {
         //     isStatic: true,
         // })
 
-        const shell1 = this.matter.add.fromVertices(1315 + 339, 1208 + 87, '1 173 1 1 677 1 677 173', {
+        const box1 = this.matter.add.fromVertices(268 + 44.5, 1035.5 + 76.5, '74 152.5 1 152.5 1 0.5 88.5 0.5 88.5 134.5', {
             label: `${LABEL_ID.EMPTY_KEY}`,
             isStatic: true,
         })
 
-        const shell2 = this.matter.add.fromVertices(1297 + 105, 815 + 126.5, '1 252 1 1 209.5 1 209.5 252', {
+        const box2 = this.matter.add.fromVertices(661.5 + 55.5, 879.5 + 44, '0.5 87 0.5 0.5 110 0.5 110 87', {
             label: `${LABEL_ID.EMPTY_KEY}`,
             isStatic: true,
         })
 
-        const shell3 = this.matter.add.fromVertices(465 + 118, 779 + 139.5, '1 278 1 1 235 1 235 278', {
+        const box3 = this.matter.add.fromVertices(873 + 150, 469 + 209.5, '1 1 1 418 299 418 299 1', {
             label: `${LABEL_ID.EMPTY_KEY}`,
             isStatic: true,
         })
 
-        const shell4 = this.matter.add.fromVertices(101 + 370.5, 1423 + 117, '740 233 740 1 1 1 1 233', {
+        const box4 = this.matter.add.fromVertices(1477 + 169, 714 + 88, '1 8.5 1 158 97 175 337.5 175 337.5 1', {
             label: `${LABEL_ID.EMPTY_KEY}`,
             isStatic: true,
         })
 
-        const arrBodies = [backDoor, shell1, shell2, shell3, shell4];
+        const box5 = this.matter.add.fromVertices(1544 + 61.5, 1018 + 78.5, '1 156 1 1 122 1 122 156', {
+            label: `${LABEL_ID.EMPTY_KEY}`,
+            isStatic: true,
+        })
+
+        const box6 = this.matter.add.fromVertices(1350.5 + 49.5, 842.5 + 64.5, '0.5 0.5 0.5 128.5 98.5 128.5 98.5 0.5', {
+            label: `${LABEL_ID.EMPTY_KEY}`,
+            isStatic: true,
+        })
+
+        const box7 = this.matter.add.fromVertices(1503 + 42.5, 1718 + 59.5, '1 118 1 1 84.5 1 84.5 118', {
+            label: `${LABEL_ID.EMPTY_KEY}`,
+            isStatic: true,
+        })
+
+        const box8 = this.matter.add.fromVertices(1622.5 + 73.5, 1673 + 85.5, '0.5 170.5 0.5 12.5 32 1 146 1 146 170.5', {
+            label: `${LABEL_ID.EMPTY_KEY}`,
+            isStatic: true,
+        })
+
+        const arrBodies = [backDoor, box1, box2, box3, box4, box5, box6, box7, box8];
 
 
         this.matterCollision.addOnCollideStart({
@@ -294,7 +314,7 @@ export class GameScene5 extends BaseScene {
     moveBackRoom() {
         this.isInZone = false;
         this.eventZone = null;
-        this.mySocket.emitSwitchScene(CST.SCENE.GAMESCENE4, 1024, 350);
+        this.mySocket.emitSwitchScene(CST.SCENE.GAMESCENE4, 990, 520);
     }
 
     showOverlay() {
