@@ -25,10 +25,7 @@ export class GameScene extends BaseScene {
         super.preload();
 
         //map
-        this.load.image('map', './assets/map/map_christmas_room_1.png');
-
-        this.load.image('diskMin', './assets/mapKey/diskMin.png');
-        this.load.image('footMin', './assets/mapKey/footMin.png');
+        this.load.image('map', './assets/map/map_christmas_room_1.jpg');
     }
 
     create(data) {
@@ -61,7 +58,7 @@ export class GameScene extends BaseScene {
 
         // if (!this.textures.exists(MAP_SETTINGS.MAP_FULL1)) {
 
-        //     this.loadPlusTexture(MAP_SETTINGS.MAP_FULL1, './assets/map/map_garally_full_1.png');
+        //     this.loadPlusTexture(MAP_SETTINGS.MAP_FULL1, './assets/map/tample_full_1.png');
 
         //     this.fullMap = false;
         // }
@@ -85,9 +82,11 @@ export class GameScene extends BaseScene {
     }
 
     createUnWalkedObjects() {
-        this.matter.add.fromVertices(125 + 767, 228 + 753.5, '88.5 1150 9 1506.5 0.5 1 1533.5 1 1533.5 485 1468 475.5 1449.5 412.5 1348 412.5 1369 458 1358.5 507 1358.5 537.5 1285 537.5 1285 507 1243 507 1243 537.5 1182.5 537.5 1182.5 507 1103.5 507 1095 452 1070.5 458 1025 475.5 996 458 979.5 404.5 979.5 155 898 134 833 166.5 833 404.5 815.5 432.5 833 452 773.5 467.5 710.5 452 710.5 475.5 668.5 485 651 611 555.5 618 548.5 529 468 529 468 475.5 303.5 475.5 280.5 513 221 520 88.5 982 241 1016.5 241 1134.5', { isStatic: true }, true)
-        this.matter.add.fromVertices(1668 + 134, 790 + 585.5, '178.5 764.5 267.5 1170 208 0.5 1 0.5 1 147.5 89.5 215.5 185.5 653 165.5 694.5 89.5 694.5 106.5 771.5 178.5 764.5', { isStatic: true }, true)
-        this.matter.add.fromVertices(702 + 108, 1804 + 117, '18.5 182 83 232.5 173.5 196 215 109 188.5 28 125.5 1.5 40.5 28 1 109', { isStatic: true }, true)
+        this.matter.add.fromVertices(604, 600 + 628.5, '145 1085 220.5 1256 1 1256 1 0.5 1817.5 0.5 1817.5 147 1369.5 147 1338 244.5 1274 262.5 1223 244.5 1178.5 200 1116.5 200 1116.5 60.5 886 60.5 886 200 777 262.5 673 233.5 673 167 58.5 200 58.5 362 94 393 127.5 300 198.5 329 198.5 479.5 174 530.5 58.5 550.5 58.5 885.5 127.5 974 145 1085', { isStatic: true }, true)
+        this.matter.add.fromVertices(1720 + 125, 1100 + 554.5, '25.5 972.5 1.5 1108 236.5 1108 249.5 1 161 1 95.5 128.5 107.5 319 161 633 110 748.5 110 835 25.5 972.5', { isStatic: true }, true)
+        this.matter.add.fromVertices(1375 + 114, 1120 + 179, '133 141 133 357.5 227 357.5 227 20 206 1 153.5 1 74 85.5 0.5 96.5 0.5 141', { isStatic: true }, true)
+        this.matter.add.fromVertices(541 + 94, 793 + 103, '187.5 205 1 205 9.5 1 187.5 1', { isStatic: true }, true)
+        this.matter.add.fromVertices(60 + 90.5, 797 + 120, '180.5 239 11 239 1 1 180.5 1', { isStatic: true }, true)
     }
 
     createPlayers(players, cameraMargin) {
@@ -115,24 +114,55 @@ export class GameScene extends BaseScene {
         // Создаем область, через которую игрок не может пройти
         // const bodyBookshellMiddle = this.matter.add.fromVertices(706 + 319.5, 1435 + 173.5, '1 1 1 254.121 230.5 346 419 346 638 254.121 638 1 1 1', { label: '1', isStatic: true })
 
-        const bodyDoor = this.matter.add.fromVertices(945.5 + 78, 719 + 113, '0.5 1 0.5 225.5 154.5 225.5 145 1', {
+        const bodyDoor = this.matter.add.fromVertices(945.5 + 118.5, 767 + 115.5, '0.5 1 0.5 230.5 236 230.5 236 1', {
             label: `${LABEL_ID.DOOR_FORWARD_ID}`,
             isStatic: true,
         })
 
-        const diskMin = this.matter.add.sprite(980, 1224, 'diskMin', null, {
-            label: `${LABEL_ID.DISK_KEY}`,
-            isStatic: true,
-            isSensor: true
-        });
+        // const firstKey = this.matter.add.fromVertices(509 + 192.5, 1657 + 71.5, '1 116 374.5 141.5 384 1 28.5 1 1 31 1 116', {
+        //     label: `${LABEL_ID.FIRST_KEY}`,
+        //     isStatic: true,
+        // })
 
-        const footMin = this.matter.add.sprite(1660, 1540, 'footMin', null, {
-            label: `${LABEL_ID.FOOT_KEY}`,
-            isStatic: true,
-            isSensor: true
-        });
+        // const secondkey = this.matter.add.fromVertices(1722.5 + 89, 582.5 + 408.5, '37.5 768 177 816 177 1.5 0.5 85 0.5 697 37.5 768', {
+        //     label: `${LABEL_ID.SECOND_KEY}`,
+        //     isStatic: true,
+        // })
 
-        const arrBodies = [bodyDoor, diskMin, footMin];
+        const shellMiddle = this.matter.add.fromVertices(754 + 110.5, 1291 + 170.5, '1 1 1 340.5 220.5 340.5 220.5 1', {
+            label: `${LABEL_ID.EMPTY_KEY}`,
+            isStatic: true,
+        })
+        const shellLeft = this.matter.add.fromVertices(93 + 223, 1375.5 + 273.5, '445 448.5 380.5 515 1 546 1 0.5 445 0.5', {
+            label: `${LABEL_ID.EMPTY_KEY}`,
+            isStatic: true,
+        })
+        const tableLeft = this.matter.add.fromVertices(233.5 + 155.5, 795 + 138.5, '310 276.5 0.5 276.5 0.5 1 310 1', {
+            label: `${LABEL_ID.EMPTY_KEY}`,
+            isStatic: true,
+        })
+
+        const tableRight1 = this.matter.add.fromVertices(1422 + 96.5, 634 + 172, '1 1 1 343.5 192 343.5 192 1', {
+            label: `${LABEL_ID.EMPTY_KEY}`,
+            isStatic: true,
+        })
+
+        const tableRight2 = this.matter.add.fromVertices(1636 + 92, 640 + 182.5, '1 1 1 364 183 364 183 1', {
+            label: `${LABEL_ID.EMPTY_KEY}`,
+            isStatic: true,
+        })
+
+        const tableRightDown = this.matter.add.fromVertices(1320 + 254.5, 1518 + 169.5, '1.5 1 20.5 338.5 430 338.5 508 1', {
+            label: `${LABEL_ID.EMPTY_KEY}`,
+            isStatic: true,
+        })
+
+        const tableRightMiddle = this.matter.add.fromVertices(1599 + 163, 1250.5 + 113, '1 225 1 0.5 325.5 0.5 325.5 225', {
+            label: `${LABEL_ID.EMPTY_KEY}`,
+            isStatic: true,
+        })
+
+        const arrBodies = [bodyDoor, shellMiddle, tableRightMiddle, tableRightDown, tableRight1, tableRight2, tableLeft, shellLeft];
 
 
         this.matterCollision.addOnCollideStart({
@@ -176,28 +206,34 @@ export class GameScene extends BaseScene {
         //задний фон оверлея
         this.overlayBackground = this.add.image(this.cameras.main.width / 2, this.cameras.main.height / 2, 'overlayBackground');
         this.overlayBackground.setOrigin(0.5, 0.5);
-        this.overlayBackground.setDisplaySize(this.cameras.main.width, this.cameras.main.height);
+        this.overlayBackground.setDisplaySize(this.cameras.main.width - 300, this.cameras.main.height - 100);
         this.overlayBackground.setVisible(false);
         this.overlayBackground.setDepth(2);
         this.overlayBackground.setScrollFactor(0);
         this.overlayBackground.setAlpha(0); // Начальное значение прозрачности
 
         //Первый ключ
-        this.diskKey = this.add.image(this.cameras.main.width / 2, this.cameras.main.height / 2, 'disk');
-        this.diskKey.setScale(0.5);
-        this.diskKey.setVisible(false);
-        this.diskKey.setDepth(2);
-        this.diskKey.setScrollFactor(0);
-        this.diskKey.setAlpha(0);
+        this.firstKey = this.add.image(this.cameras.main.width / 2, this.cameras.main.height / 2 + 30, 'firstKey');
+        this.firstKey.setScale(0.5);
+        this.firstKey.setVisible(false);
+        this.firstKey.setDepth(2);
+        this.firstKey.setScrollFactor(0);
+        this.firstKey.setAlpha(0);
 
-        this.footKey = this.add.image(this.cameras.main.width / 2, this.cameras.main.height / 2, 'foot');
-        this.footKey.setScale(0.5);
-        this.footKey.setVisible(false);
-        this.footKey.setDepth(2);
-        this.footKey.setScrollFactor(0);
-        this.footKey.setAlpha(0);
+        this.secondkey = this.add.image(this.cameras.main.width / 2, this.cameras.main.height / 2 + 30, 'secondKey');
+        this.secondkey.setScale(0.5);
+        this.secondkey.setVisible(false);
+        this.secondkey.setDepth(2);
+        this.secondkey.setScrollFactor(0);
+        this.secondkey.setAlpha(0);
 
-        this.closeButton = this.add.image(this.cameras.main.width - 260, 80, 'closeIcon');
+        this.emptyKey = this.add.image(this.cameras.main.width / 2, this.cameras.main.height / 2, 'emptyKey');
+        this.emptyKey.setVisible(false);
+        this.emptyKey.setDepth(2);
+        this.emptyKey.setScrollFactor(0);
+        this.emptyKey.setAlpha(0);
+
+        this.closeButton = this.add.image(this.cameras.main.width - 200, 85, 'closeIcon');
         this.closeButton.setDisplaySize(50, 50);
         this.closeButton.setInteractive();
         this.closeButton.setVisible(false);
@@ -208,7 +244,7 @@ export class GameScene extends BaseScene {
         this.closeButton.on('pointerdown', () => {
             this.isOverlayVisible = false;
             this.tweens.add({
-                targets: [this.closeButton, this.overlayBackground, this.diskKey, this.footKey],
+                targets: [this.closeButton, this.overlayBackground, this.firstKey, this.secondkey, this.emptyKey],
                 alpha: 0,
                 duration: 500,
                 onComplete: () => {
@@ -238,14 +274,14 @@ export class GameScene extends BaseScene {
                     this.showOverlay();
 
                     this.tweens.add({
-                        targets: [this.closeButton, this.overlayBackground, this.diskKey, this.footKey],
+                        targets: [this.closeButton, this.overlayBackground, this.firstKey, this.secondkey, this.emptyKey],
                         alpha: 1,
                         duration: 500
                     });
                 }
                 else {
                     this.tweens.add({
-                        targets: [this.closeButton, this.overlayBackground, this.diskKey, this.footKey],
+                        targets: [this.closeButton, this.overlayBackground, this.firstKey, this.secondkey, this.emptyKey],
                         alpha: 0,
                         duration: 500,
                         onComplete: () => {
@@ -263,24 +299,28 @@ export class GameScene extends BaseScene {
     moveForwardRoom() {
         this.isInZone = false;
         this.eventZone = null;
-        this.mySocket.emitSwitchScene(CST.SCENE.GAMESCENE2, 1024, 2000);
+        this.mySocket.emitSwitchScene(CST.SCENE.GAMESCENE2, 1024, 1900);
     }
 
     showOverlay() {
         this.isOverlayVisible = true
 
-        if (this.eventZone == LABEL_ID.DISK_KEY) {
-            this.diskKey.setVisible(true);
-            if (this.fold.indexOf(this.diskKey.texture.key) == -1) {
-                this.mySocket.emitAddNewImg(this.diskKey.texture.key);
+        if (this.eventZone == LABEL_ID.FIRST_KEY) {
+            this.firstKey.setVisible(true);
+            if (this.fold.indexOf(this.firstKey.texture.key) == -1) {
+                this.mySocket.emitAddNewImg(this.firstKey.texture.key);
             }
         }
 
-        if (this.eventZone == LABEL_ID.FOOT_KEY) {
-            this.footKey.setVisible(true);
-            if (this.fold.indexOf(this.footKey.texture.key) == -1) {
-                this.mySocket.emitAddNewImg(this.footKey.texture.key);
+        if (this.eventZone == LABEL_ID.SECOND_KEY) {
+            this.secondkey.setVisible(true);
+            if (this.fold.indexOf(this.secondkey.texture.key) == -1) {
+                this.mySocket.emitAddNewImg(this.secondkey.texture.key);
             }
+        }
+
+        if (this.eventZone == LABEL_ID.EMPTY_KEY) {
+            this.emptyKey.setVisible(true);
         }
 
         this.overlayBackground.setVisible(true);
@@ -289,8 +329,9 @@ export class GameScene extends BaseScene {
 
     hideOverlay() {
         this.isOverlayVisible = false
-        if (this.eventZone == LABEL_ID.DISK_KEY) this.diskKey.setVisible(false);
-        if (this.eventZone == LABEL_ID.FOOT_KEY) this.footKey.setVisible(false);
+        if (this.firstKey.visible) this.firstKey.setVisible(false);
+        if (this.secondkey.visible) this.secondkey.setVisible(false);
+        if (this.emptyKey.visible) this.emptyKey.setVisible(false);
 
         this.overlayBackground.setVisible(false);
         this.closeButton.setVisible(false);
@@ -317,14 +358,14 @@ export class GameScene extends BaseScene {
                 context.showOverlay();
 
                 context.tweens.add({
-                    targets: [context.overlayBackground, context.closeButton, context.diskKey, context.footKey],
+                    targets: [context.overlayBackground, context.closeButton, context.firstKey, context.secondkey, context.emptyKey],
                     alpha: 1,
                     duration: 500
                 });
             }
             else {
                 context.tweens.add({
-                    targets: [context.overlayBackground, context.closeButton, context.diskKey, context.footKey],
+                    targets: [context.overlayBackground, context.closeButton, context.firstKey, context.secondkey, context.emptyKey],
                     alpha: 0,
                     duration: 500,
                     onComplete: () => {
