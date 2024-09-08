@@ -25,7 +25,7 @@ export class GameScene3 extends BaseScene {
         super.preload();
 
         //map
-        this.load.image('map3', './assets/map/map_christmas_room_3.jpg');
+        this.load.image('map3', './assets/map/map_christmas_factory_3.jpg');
     }
 
     create(data) {
@@ -82,11 +82,11 @@ export class GameScene3 extends BaseScene {
     }
 
     createUnWalkedObjects() {
-        this.matter.add.fromVertices(495, 610 + 643.5, '149 970.5 158 1285.5 0.5 1269.5 20 0.5 1961.5 0.5 1961.5 163.5 1388 163.5 1388 298 1248 326 1145.5 308.5 1145.5 163.5 915.5 163.5 915.5 308.5 761.5 326 660.5 298 660.5 117.5 237.5 117.5 237.5 197 290.5 234 290.5 308.5 358 407.5 473 701.5 446.5 744 459 864 393.5 915.5 335 875 253.5 915.5 168.5 832.5 90.5 807.5 66 823.5 90.5 952.5 149 970.5', { isStatic: true }, true)
-        this.matter.add.fromVertices(1890.5 + 69.5, 857 + 594.5, '108 788.5 119 1188.5 138.5 1188.5 138.5 1 27 1 0.5 332 99.5 652 27 657.5', { isStatic: true }, true)
-        this.matter.add.fromVertices(1704.5 + 71.5, 1649.5 + 160, '142 319 0.5 319 0.5 0.5 142 0.5', { isStatic: true }, true)
-        this.matter.add.fromVertices(1055 + 323, 1382.5 + 85.5, '26 60.5 1 34 1 0.5 645.5 0.5 645.5 78.5 592 78.5 592 170.5 565.5 170.5 565.5 110 488 110 488 170.5 463 170.5 447 60.5 381.5 60.5 371 151 355 151 332 60.5 249 60.5 240 110 240 170.5 213.5 170.5 213.5 110 130.5 110 130.5 170.5 109 170.5 109 60.5 57.5 60.5 57.5 151 26 151 26 60.5', { isStatic: true }, true)
-        this.matter.add.fromVertices(466 + 93.5, 1174 + 130, '1 149.5 120.5 259 186 179.5 164 76.5 82.5 1 33 36.5', { isStatic: true }, true)
+        this.matter.add.fromVertices(820, 1060, '808.5 1752 1131.5 1752 1131.5 1788.5 0.5 1788.5 0.5 1 1862.5 1 1862.5 676.5 1748.5 676.5 1748.5 617.5 1769.5 617.5 1763.5 503.5 1678.5 503.5 1564.5 512.5 1564.5 554 1346 554 1346 503.5 1045.5 503.5 1045.5 96.5 895.5 96.5 895.5 538.5 803.5 545.5 803.5 499.5 770.5 499.5 770.5 516.5 678.5 512.5 678.5 476 621 476 621 676.5 783.5 676.5 783.5 745 664.5 745 664.5 823 722.5 823 765 889 765 1347.5 594 1347.5 594 1221.5 502 1221.5 502 1024.5 487.5 1008 487.5 903 340.5 903 340.5 938.5 385 969 385 1008 375.5 1055 340.5 1076.5 295.5 1083.5 274 1069.5 248.5 1055 257.5 1183.5 295.5 1183.5 295.5 1112 340.5 1112 348.5 1433.5 248.5 1433.5 248.5 1520 196.5 1520 196.5 1590.5 178.5 1646 138.5 1694.5 412 1694.5 808.5 1719 808.5 1752', { isStatic: true }, true)
+        this.matter.add.fromVertices(1210 + 447, 860 + 573, '104 1115.5 0.5 1115.5 0.5 1145 893 1145 893 7 722 7 722 41 510 41 510 1 400 1 400 41 232.5 48 232.5 103.5 304.5 103.5 304.5 284 376.5 284 376.5 324 388.5 324 388.5 377 441.5 377 441.5 358 637 358 637 377 674 377 674 453.5 722 453.5 730.5 679 666.5 679 666.5 833.5 714 833.5 714 879.5 789.5 879.5 764.5 938.5 736.5 969 722 1017.5 736.5 1023.5 736.5 1051.5 722 1077.5 104 1077.5 104 1115.5', { isStatic: true }, true)
+        this.matter.add.fromVertices(701.5 + 42.5, 1669 + 56, '32.5 110.5 0.5 81 0.5 31.5 54 1 84.5 31.5 84.5 87', { isStatic: true }, true)
+        this.matter.add.fromVertices(1235 + 161.5, 1326 + 170.5, '1 82 19.5 82 128 76.5 131.5 1 307.5 8 307.5 89 322.5 89 322.5 340.5 252 340.5 252 313.5 85.5 313.5 62 340.5 12.5 340.5 12.5 268.5 1 268.5 1 82', { isStatic: true }, true)
+        this.matter.add.fromVertices(483.5 + 22, 1273 + 87.5, '43 174 0.5 174 0.5 1 43 1', { isStatic: true }, true)
     }
 
     createPlayers(players, cameraMargin) {
@@ -111,13 +111,13 @@ export class GameScene3 extends BaseScene {
         highlightGraphics.lineStyle(2, 0x06ff01, 1);
         highlightGraphics.setDepth(0);
 
-        const backDoor = this.matter.add.fromVertices(711.5 + 245, 1957.5 + 44, '0.5 0.5 0.5 87.5 489 87.5 489 0.5', {
+        const backDoor = this.matter.add.fromVertices(862 + 161.5, 1928.5 + 32.5, '1 0.5 1 64 322 64 322 0.5', {
             label: `${LABEL_ID.DOOR_BACK_ID}`,
             isStatic: true,
             isSensor: true
         })
 
-        const forwardDoor = this.matter.add.fromVertices(915 + 118.5, 841 + 117, '1 1 1 233 236.5 233 236.5 1', {
+        const forwardDoor = this.matter.add.fromVertices(957.5 + 69.5, 347 + 48.5, '0.5 96.5 0.5 1 138.5 1 138.5 96.5', {
             label: `${LABEL_ID.DOOR_FORWARD_ID}`,
             isStatic: true,
         })
@@ -132,28 +132,67 @@ export class GameScene3 extends BaseScene {
         //     isStatic: true,
         // })
 
-        const shell1 = this.matter.add.fromVertices(225 + 233.5, 711.5 + 123, '466.5 245 1 245 1 0.5 466.5 0.5', {
+        const box1 = this.matter.add.fromVertices(573.5 + 67.5, 719 + 98.5, '0.5 196 0.5 1 134.5 1 134.5 196', {
             label: `${LABEL_ID.EMPTY_KEY}`,
             isStatic: true,
         })
 
-        const shell2 = this.matter.add.fromVertices(1356 + 301.5, 704.5 + 140, '602.5 0.5 602.5 278.5 1 250 1 0.5', {
+        const box2 = this.matter.add.fromVertices(1270 + 36, 1301 + 76.5, '1 1 1 152.5 71.5 152.5 71.5 1', {
             label: `${LABEL_ID.EMPTY_KEY}`,
             isStatic: true,
         })
 
-        const shell3 = this.matter.add.fromVertices(1069 + 411.5, 1182.5 + 111, '822.5 221.5 1 221.5 10 0.5 822.5 0.5', {
+        const box3 = this.matter.add.fromVertices(1372.5 + 35.5, 991.5 + 89.5, '0.5 178.5 0.5 0.5 70 0.5 70 178.5', {
             label: `${LABEL_ID.EMPTY_KEY}`,
             isStatic: true,
         })
 
-        const shell4 = this.matter.add.fromVertices(1720.5 + 130.5, 1373.5 + 116.5, '0.5 232.5 0.5 0.5 260.5 0.5 260.5 232.5', {
+        const box4 = this.matter.add.fromVertices(1294.5 + 58.5, 675.5 + 72.5, '0.5 144 0.5 0.5 116 0.5 116 125.5', {
             label: `${LABEL_ID.EMPTY_KEY}`,
             isStatic: true,
         })
 
+        const box5 = this.matter.add.fromVertices(1804 + 38.5, 734 + 61.5, '1 122 1 1 76 1 76 122', {
+            label: `${LABEL_ID.EMPTY_KEY}`,
+            isStatic: true,
+        })
 
-        const arrBodies = [backDoor, forwardDoor, shell1, shell2, shell3, shell4];
+        const box6 = this.matter.add.fromVertices(1638.5 + 48.5, 682.5 + 41, '0.5 0.5 0.5 81 96.5 81 96.5 0.5', {
+            label: `${LABEL_ID.EMPTY_KEY}`,
+            isStatic: true,
+        })
+
+        const box7 = this.matter.add.fromVertices(383 + 182.5, 1008 + 70.5, '1 38.5 1 140 364.5 140 364.5 1 114 1', {
+            label: `${LABEL_ID.EMPTY_KEY}`,
+            isStatic: true,
+        })
+
+        const box8 = this.matter.add.fromVertices(1581.5 + 75, 1830.5 + 80.5, '0.5 160.5 0.5 0.5 149 0.5 149 160.5', {
+            label: `${LABEL_ID.EMPTY_KEY}`,
+            isStatic: true,
+        })
+
+        const box9 = this.matter.add.fromVertices(1524 + 95.5, 1204.5 + 25.5, '1 0.5 1 50.5 190.5 50.5 190.5 0.5', {
+            label: `${LABEL_ID.EMPTY_KEY}`,
+            isStatic: true,
+        })
+
+        const box10 = this.matter.add.fromVertices(1755 + 74.5, 1328 + 118.5, '148.5 1 1 1 1 236.5 148.5 236.5', {
+            label: `${LABEL_ID.EMPTY_KEY}`,
+            isStatic: true,
+        })
+
+        const box11 = this.matter.add.fromVertices(654.5 + 43, 1789.5 + 56.5, '85.5 112.5 0.5 112.5 0.5 0.5 85.5 0.5', {
+            label: `${LABEL_ID.EMPTY_KEY}`,
+            isStatic: true,
+        })
+
+        const box12 = this.matter.add.fromVertices(332.5 + 71.5, 1830.5 + 82.5, '0.5 164.5 0.5 0.5 142 0.5 142 164.5', {
+            label: `${LABEL_ID.EMPTY_KEY}`,
+            isStatic: true,
+        })
+
+        const arrBodies = [backDoor, forwardDoor, box1, box2, box3, box4, box5, box6, box7, box8, box9, box10, box11, box12];
 
 
         this.matterCollision.addOnCollideStart({
@@ -302,7 +341,7 @@ export class GameScene3 extends BaseScene {
     moveBackRoom() {
         this.isInZone = false;
         this.eventZone = null;
-        this.mySocket.emitSwitchScene(CST.SCENE.GAMESCENE2, 1054, 1000);
+        this.mySocket.emitSwitchScene(CST.SCENE.GAMESCENE2, 1024, 700);
     }
 
     showOverlay() {
