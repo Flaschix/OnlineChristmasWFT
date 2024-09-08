@@ -118,7 +118,6 @@ export class GameScene4 extends BaseScene {
         const forwardDoor = this.matter.add.fromVertices(910 + 117.5, 740.5 + 140.5, '1 0.5 1 280 234.5 280 234.5 0.5', {
             label: `${LABEL_ID.DOOR_FORWARD_ID}`,
             isStatic: true,
-            isSensor: true
         })
 
         // const thirdKey = this.matter.add.fromVertices(263.5 + 162.5, 194.5 + 186, '1.5 266.5 106.5 370.5 324 126 255 1.5', {
@@ -295,7 +294,7 @@ export class GameScene4 extends BaseScene {
     moveForwardRoom() {
         this.isInZone = false;
         this.eventZone = null;
-        this.mySocket.emitSwitchScene(CST.SCENE.GAMESCENE5, 1024, 1720);
+        this.mySocket.emitSwitchScene(CST.SCENE.GAMESCENE5, 1024, 1910);
     }
 
     moveBackRoom() {
