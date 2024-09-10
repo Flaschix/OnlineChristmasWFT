@@ -58,6 +58,8 @@ export class LobbyScene extends Phaser.Scene {
         this.load.image('answer', 'assets/keyFrame/answer.png');
         this.load.image('emptyKey', 'assets/keyFrame/emptyKey.png');
 
+        this.load.image('elf', 'assets/character/elf.png');
+
         this.load.image('rightArrow', 'assets/button/rightArrow.png');
         this.load.image('leftArrow', 'assets/button/leftArrow.png');
 
