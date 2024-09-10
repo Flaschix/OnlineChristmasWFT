@@ -156,7 +156,7 @@ export class GameScene extends BaseScene {
         })
 
         const box6 = this.matter.add.fromVertices(1149 + 45, 813 + 63, '1 125.5 1 1 89.5 1 89.5 125.5', {
-            label: `${LABEL_ID.EMPTY_KEY}`,
+            label: `${LABEL_ID.FIRST_KEY}`,
             isStatic: true,
         })
 
