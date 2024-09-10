@@ -26,6 +26,11 @@ export class GameScene extends BaseScene {
 
         //map
         this.load.image('map', './assets/map/map_christmas_travel_1.jpg');
+        this.load.image('joke1', './assets/jokes/Joke 1.png')
+        this.load.image('joke2', './assets/jokes/Joke 2.png')
+
+        this.load.image('newyorkNameplate', 'assets/nameplate/newYork.png');
+        this.load.image('beijingNameplate', 'assets/nameplate/beijing.png');
     }
 
     create(data) {
@@ -113,49 +118,53 @@ export class GameScene extends BaseScene {
         highlightGraphics.lineStyle(2, 0x06ff01, 1);
         highlightGraphics.setDepth(0);
 
-        // Создаем область, через которую игрок не может пройти
-        // const bodyBookshellMiddle = this.matter.add.fromVertices(706 + 319.5, 1435 + 173.5, '1 1 1 254.121 230.5 346 419 346 638 254.121 638 1 1 1', { label: '1', isStatic: true })
-
         // const bodyDoor = this.matter.add.fromVertices(945.5 + 118.5, 767 + 115.5, '0.5 1 0.5 230.5 236 230.5 236 1', {
         //     label: `${LABEL_ID.DOOR_FORWARD_ID}`,
         //     isStatic: true,
         // })
 
-        // const firstKey = this.matter.add.fromVertices(509 + 192.5, 1657 + 71.5, '1 116 374.5 141.5 384 1 28.5 1 1 31 1 116', {
-        //     label: `${LABEL_ID.FIRST_KEY}`,
-        //     isStatic: true,
-        // })
-
-        // const secondkey = this.matter.add.fromVertices(1722.5 + 89, 582.5 + 408.5, '37.5 768 177 816 177 1.5 0.5 85 0.5 697 37.5 768', {
-        //     label: `${LABEL_ID.SECOND_KEY}`,
-        //     isStatic: true,
-        // })
-
-        const elf1 = this.matter.add.sprite(849 + 17, 1408 + 28 - 266, 'elf', null, {
-            label: `${LABEL_ID.EMPTY_KEY}`,
+        const namePlateNewYork = this.matter.add.sprite(918, 1942 + 32 - 266, 'newyorkNameplate', null, {
+            label: `${LABEL_ID.DOOR_FORWARD_ID}`,
             isStatic: true,
             isSensor: true
         });
 
-        const elf2 = this.matter.add.sprite(1687 + 17, 1277 + 28 - 266, 'elf', null, {
-            label: `${LABEL_ID.EMPTY_KEY}`,
+        namePlateNewYork.setScale(0.3);
+
+        const namePlateBijing = this.matter.add.sprite(1118, 1942 + 32 - 266, 'beijingNameplate', null, {
+            label: `${LABEL_ID.DOOR_BACK_ID}`,
             isStatic: true,
             isSensor: true
         });
 
-        const elf3 = this.matter.add.sprite(418 + 17, 1132 + 28 - 266, 'elf', null, {
-            label: `${LABEL_ID.EMPTY_KEY}`,
+        namePlateBijing.setScale(0.3);
+
+
+        const elf1 = this.matter.add.sprite(455 + 32, 1126 + 42 - 266, 'elf2', null, {
+            label: `${LABEL_ID.FIRST_KEY}`,
             isStatic: true,
             isSensor: true
         });
 
-        const elf4 = this.matter.add.sprite(1052 + 17, 797 + 28 - 266, 'elf', null, {
-            label: `${LABEL_ID.EMPTY_KEY}`,
+        const elf2 = this.matter.add.sprite(907 + 32, 818 + 42 - 266, 'elf3', null, {
+            label: `${LABEL_ID.SECOND_JOKE}`,
             isStatic: true,
             isSensor: true
         });
 
-        const arrBodies = [elf1, elf2, elf3, elf4];
+        const elf3 = this.matter.add.sprite(851 + 32, 1378 + 42 - 266, 'elf1', null, {
+            label: `${LABEL_ID.FIRST_JOKE}`,
+            isStatic: true,
+            isSensor: true
+        });
+
+        const elf4 = this.matter.add.sprite(1641 + 32, 1254 + 42 - 266, 'elf4', null, {
+            label: `${LABEL_ID.SECOND_KEY}`,
+            isStatic: true,
+            isSensor: true
+        });
+
+        const arrBodies = [elf1, elf2, elf3, elf4, namePlateNewYork, namePlateBijing];
 
 
         this.matterCollision.addOnCollideStart({
@@ -205,26 +214,33 @@ export class GameScene extends BaseScene {
         this.overlayBackground.setScrollFactor(0);
         this.overlayBackground.setAlpha(0); // Начальное значение прозрачности
 
-        //Первый ключ
-        this.firstKey = this.add.image(this.cameras.main.width / 2, this.cameras.main.height / 2 + 30, 'firstKey');
-        this.firstKey.setScale(0.5);
+        this.firstKey = this.add.image(this.cameras.main.width / 2, this.cameras.main.height / 2 + 10, 'parisKey1');
+        this.firstKey.setScale(0.8);
         this.firstKey.setVisible(false);
         this.firstKey.setDepth(2);
         this.firstKey.setScrollFactor(0);
         this.firstKey.setAlpha(0);
 
-        this.secondkey = this.add.image(this.cameras.main.width / 2, this.cameras.main.height / 2 + 30, 'secondKey');
-        this.secondkey.setScale(0.5);
+        this.secondkey = this.add.image(this.cameras.main.width / 2, this.cameras.main.height / 2 + 10, 'parisKey2');
+        this.secondkey.setScale(0.8);
         this.secondkey.setVisible(false);
         this.secondkey.setDepth(2);
         this.secondkey.setScrollFactor(0);
         this.secondkey.setAlpha(0);
 
-        this.emptyKey = this.add.image(this.cameras.main.width / 2, this.cameras.main.height / 2, 'emptyKey');
-        this.emptyKey.setVisible(false);
-        this.emptyKey.setDepth(2);
-        this.emptyKey.setScrollFactor(0);
-        this.emptyKey.setAlpha(0);
+        this.firstJoke = this.add.image(this.cameras.main.width / 2, this.cameras.main.height / 2 + 10, 'joke1');
+        this.firstJoke.setScale(0.8);
+        this.firstJoke.setVisible(false);
+        this.firstJoke.setDepth(2);
+        this.firstJoke.setScrollFactor(0);
+        this.firstJoke.setAlpha(0);
+
+        this.secondJoke = this.add.image(this.cameras.main.width / 2, this.cameras.main.height / 2 + 10, 'joke2');
+        this.secondJoke.setScale(0.8);
+        this.secondJoke.setVisible(false);
+        this.secondJoke.setDepth(2);
+        this.secondJoke.setScrollFactor(0);
+        this.secondJoke.setAlpha(0);
 
         this.closeButton = this.add.image(this.cameras.main.width - 200, 85, 'closeIcon');
         this.closeButton.setDisplaySize(50, 50);
@@ -237,7 +253,7 @@ export class GameScene extends BaseScene {
         this.closeButton.on('pointerdown', () => {
             this.isOverlayVisible = false;
             this.tweens.add({
-                targets: [this.closeButton, this.overlayBackground, this.firstKey, this.secondkey, this.emptyKey],
+                targets: [this.closeButton, this.overlayBackground, this.firstKey, this.secondkey, this.firstJoke, this.secondJoke],
                 alpha: 0,
                 duration: 500,
                 onComplete: () => {
@@ -262,19 +278,24 @@ export class GameScene extends BaseScene {
                     return;
                 }
 
+                if (this.eventZone == LABEL_ID.DOOR_BACK_ID) {
+                    this.moveBackRoom();
+                    return;
+                }
+
                 if (!this.isOverlayVisible) {
 
                     this.showOverlay();
 
                     this.tweens.add({
-                        targets: [this.closeButton, this.overlayBackground, this.firstKey, this.secondkey, this.emptyKey],
+                        targets: [this.closeButton, this.overlayBackground, this.firstKey, this.secondkey, this.firstJoke, this.secondJoke],
                         alpha: 1,
                         duration: 500
                     });
                 }
                 else {
                     this.tweens.add({
-                        targets: [this.closeButton, this.overlayBackground, this.firstKey, this.secondkey, this.emptyKey],
+                        targets: [this.closeButton, this.overlayBackground, this.firstKey, this.secondkey, this.firstJoke, this.secondJoke],
                         alpha: 0,
                         duration: 500,
                         onComplete: () => {
@@ -295,6 +316,12 @@ export class GameScene extends BaseScene {
         this.mySocket.emitSwitchScene(CST.SCENE.GAMESCENE2, 1024, 1900);
     }
 
+    moveBackRoom() {
+        this.isInZone = false;
+        this.eventZone = null;
+        this.mySocket.emitSwitchScene(CST.SCENE.GAMESCENE6, 1024, 1700);
+    }
+
     showOverlay() {
         this.isOverlayVisible = true
 
@@ -312,8 +339,12 @@ export class GameScene extends BaseScene {
             }
         }
 
-        if (this.eventZone == LABEL_ID.EMPTY_KEY) {
-            this.emptyKey.setVisible(true);
+        if (this.eventZone == LABEL_ID.FIRST_JOKE) {
+            this.firstJoke.setVisible(true);
+        }
+
+        if (this.eventZone == LABEL_ID.SECOND_JOKE) {
+            this.secondJoke.setVisible(true);
         }
 
         this.overlayBackground.setVisible(true);
@@ -324,7 +355,8 @@ export class GameScene extends BaseScene {
         this.isOverlayVisible = false
         if (this.firstKey.visible) this.firstKey.setVisible(false);
         if (this.secondkey.visible) this.secondkey.setVisible(false);
-        if (this.emptyKey.visible) this.emptyKey.setVisible(false);
+        if (this.firstJoke.visible) this.firstJoke.setVisible(false);
+        if (this.secondJoke.visible) this.secondJoke.setVisible(false);
 
         this.overlayBackground.setVisible(false);
         this.closeButton.setVisible(false);
@@ -346,19 +378,24 @@ export class GameScene extends BaseScene {
                 return;
             }
 
+            if (context.eventZone == LABEL_ID.DOOR_BACK_ID) {
+                context.moveBackRoom();
+                return;
+            }
+
             if (!context.isOverlayVisible) {
 
                 context.showOverlay();
 
                 context.tweens.add({
-                    targets: [context.overlayBackground, context.closeButton, context.firstKey, context.secondkey, context.emptyKey],
+                    targets: [context.overlayBackground, context.closeButton, context.firstKey, context.secondkey, context.firstJoke, context.secondJoke],
                     alpha: 1,
                     duration: 500
                 });
             }
             else {
                 context.tweens.add({
-                    targets: [context.overlayBackground, context.closeButton, context.firstKey, context.secondkey, context.emptyKey],
+                    targets: [context.overlayBackground, context.closeButton, context.firstKey, context.secondkey, context.firstJoke, context.secondJoke],
                     alpha: 0,
                     duration: 500,
                     onComplete: () => {

@@ -26,6 +26,12 @@ export class GameScene4 extends BaseScene {
 
         //map
         this.load.image('map4', './assets/map/map_christmas_travel_4.jpg');
+
+        this.load.image('joke9', './assets/jokes/Joke 9.png')
+        this.load.image('joke10', './assets/jokes/Joke 10.png')
+
+        this.load.image('sydneyNameplate', 'assets/nameplate/sydney.png');
+        this.load.image('tokyoNameplate', 'assets/nameplate/tokyo.png');
     }
 
     create(data) {
@@ -111,31 +117,47 @@ export class GameScene4 extends BaseScene {
         highlightGraphics.lineStyle(2, 0x06ff01, 1);
         highlightGraphics.setDepth(0);
 
-        // const backDoor = this.matter.add.fromVertices(855 + 247.5, 1932.5 + 59, '1 0.5 1 117.5 494.5 117.5 494.5 0.5', {
-        //     label: `${LABEL_ID.DOOR_BACK_ID}`,
-        //     isStatic: true,
-        //     isSensor: true
-        // })
+        const sydneyNameplate = this.matter.add.sprite(1150, 1980 + 32 - 200, 'sydneyNameplate', null, {
+            label: `${LABEL_ID.DOOR_FORWARD_ID}`,
+            isStatic: true,
+            isSensor: true
+        });
 
-        // const forwardDoor = this.matter.add.fromVertices(910 + 117.5, 740.5 + 140.5, '1 0.5 1 280 234.5 280 234.5 0.5', {
-        //     label: `${LABEL_ID.DOOR_FORWARD_ID}`,
-        //     isStatic: true,
-        // })
+        sydneyNameplate.setScale(0.3);
 
-        // const thirdKey = this.matter.add.fromVertices(263.5 + 162.5, 194.5 + 186, '1.5 266.5 106.5 370.5 324 126 255 1.5', {
-        //     label: `${LABEL_ID.THIRD_KEY}`,
-        //     isStatic: true,
-        // })
+        const tokyoNameplate = this.matter.add.sprite(948, 1980 + 32 - 200, 'tokyoNameplate', null, {
+            label: `${LABEL_ID.DOOR_BACK_ID}`,
+            isStatic: true,
+            isSensor: true
+        });
 
-        // const fourthKey = this.matter.add.fromVertices(242.5 + 170.5, 1503.5 + 179.5, '1.5 95 113.5 1.5 339.5 244.5 268 358', {
-        //     label: `${LABEL_ID.FOURTH_KEY}`,
-        //     isStatic: true,
-        // })
+        tokyoNameplate.setScale(0.3);
 
+        const elf1 = this.matter.add.sprite(631 + 32, 1589 + 42 - 168, 'elf1', null, {
+            label: `${LABEL_ID.FIRST_KEY}`,
+            isStatic: true,
+            isSensor: true
+        });
 
+        const elf2 = this.matter.add.sprite(1331 + 32, 1612 + 42 - 168, 'elf4', null, {
+            label: `${LABEL_ID.SECOND_JOKE}`,
+            isStatic: true,
+            isSensor: true
+        });
 
+        const elf3 = this.matter.add.sprite(567 + 32, 918 + 42 - 168, 'elf5', null, {
+            label: `${LABEL_ID.FIRST_JOKE}`,
+            isStatic: true,
+            isSensor: true
+        });
 
-        const arrBodies = [];
+        const elf4 = this.matter.add.sprite(1529 + 32, 892 + 42 - 168, 'elf3', null, {
+            label: `${LABEL_ID.SECOND_KEY}`,
+            isStatic: true,
+            isSensor: true
+        });
+
+        const arrBodies = [elf1, elf2, elf3, elf4, sydneyNameplate, tokyoNameplate];
 
 
         this.matterCollision.addOnCollideStart({
@@ -186,25 +208,33 @@ export class GameScene4 extends BaseScene {
         this.overlayBackground.setAlpha(0); // Начальное значение прозрачности
 
         //Первый ключ
-        this.thirdKey = this.add.image(this.cameras.main.width / 2, this.cameras.main.height / 2 + 30, 'thirdKey');
-        this.thirdKey.setScale(0.5);
-        this.thirdKey.setVisible(false);
-        this.thirdKey.setDepth(2);
-        this.thirdKey.setScrollFactor(0);
-        this.thirdKey.setAlpha(0);
+        this.firstKey = this.add.image(this.cameras.main.width / 2, this.cameras.main.height / 2 + 10, 'rioKey1');
+        this.firstKey.setScale(0.8);
+        this.firstKey.setVisible(false);
+        this.firstKey.setDepth(2);
+        this.firstKey.setScrollFactor(0);
+        this.firstKey.setAlpha(0);
 
-        this.fourthKey = this.add.image(this.cameras.main.width / 2, this.cameras.main.height / 2 + 30, 'fourthKey');
-        this.fourthKey.setScale(0.5);
-        this.fourthKey.setVisible(false);
-        this.fourthKey.setDepth(2);
-        this.fourthKey.setScrollFactor(0);
-        this.fourthKey.setAlpha(0);
+        this.secondKey = this.add.image(this.cameras.main.width / 2, this.cameras.main.height / 2 + 10, 'rioKey2');
+        this.secondKey.setScale(0.8);
+        this.secondKey.setVisible(false);
+        this.secondKey.setDepth(2);
+        this.secondKey.setScrollFactor(0);
+        this.secondKey.setAlpha(0);
 
-        this.emptyKey = this.add.image(this.cameras.main.width / 2, this.cameras.main.height / 2, 'emptyKey');
-        this.emptyKey.setVisible(false);
-        this.emptyKey.setDepth(2);
-        this.emptyKey.setScrollFactor(0);
-        this.emptyKey.setAlpha(0);
+        this.firstJoke = this.add.image(this.cameras.main.width / 2, this.cameras.main.height / 2 + 10, 'joke9');
+        this.firstJoke.setScale(0.8);
+        this.firstJoke.setVisible(false);
+        this.firstJoke.setDepth(2);
+        this.firstJoke.setScrollFactor(0);
+        this.firstJoke.setAlpha(0);
+
+        this.secondJoke = this.add.image(this.cameras.main.width / 2, this.cameras.main.height / 2 + 10, 'joke10');
+        this.secondJoke.setScale(0.8);
+        this.secondJoke.setVisible(false);
+        this.secondJoke.setDepth(2);
+        this.secondJoke.setScrollFactor(0);
+        this.secondJoke.setAlpha(0);
 
 
         this.closeButton = this.add.image(this.cameras.main.width - 200, 85, 'closeIcon');
@@ -218,7 +248,7 @@ export class GameScene4 extends BaseScene {
         this.closeButton.on('pointerdown', () => {
             this.isOverlayVisible = false;
             this.tweens.add({
-                targets: [this.closeButton, this.overlayBackground, this.thirdKey, this.fourthKey, this.emptyKey],
+                targets: [this.closeButton, this.overlayBackground, this.firstKey, this.secondKey, this.firstJoke, this.secondJoke],
                 alpha: 0,
                 duration: 500,
                 onComplete: () => {
@@ -253,14 +283,14 @@ export class GameScene4 extends BaseScene {
                     this.showOverlay();
 
                     this.tweens.add({
-                        targets: [this.closeButton, this.overlayBackground, this.thirdKey, this.fourthKey, this.emptyKey],
+                        targets: [this.closeButton, this.overlayBackground, this.firstKey, this.secondKey, this.firstJoke, this.secondJoke],
                         alpha: 1,
                         duration: 500
                     });
                 }
                 else {
                     this.tweens.add({
-                        targets: [this.closeButton, this.overlayBackground, this.thirdKey, this.fourthKey, this.emptyKey],
+                        targets: [this.closeButton, this.overlayBackground, this.firstKey, this.secondKey, this.firstJoke, this.secondJoke],
                         alpha: 0,
                         duration: 500,
                         onComplete: () => {
@@ -278,34 +308,38 @@ export class GameScene4 extends BaseScene {
     moveForwardRoom() {
         this.isInZone = false;
         this.eventZone = null;
-        this.mySocket.emitSwitchScene(CST.SCENE.GAMESCENE5, 1024, 1910);
+        this.mySocket.emitSwitchScene(CST.SCENE.GAMESCENE5, 1054, 1100);
     }
 
     moveBackRoom() {
         this.isInZone = false;
         this.eventZone = null;
-        this.mySocket.emitSwitchScene(CST.SCENE.GAMESCENE3, 1024, 1090);
+        this.mySocket.emitSwitchScene(CST.SCENE.GAMESCENE3, 1024, 1500);
     }
 
     showOverlay() {
         this.isOverlayVisible = true
 
-        if (this.eventZone == LABEL_ID.THIRD_KEY) {
-            this.thirdKey.setVisible(true);
-            if (this.fold.indexOf(this.thirdKey.texture.key) == -1) {
-                this.mySocket.emitAddNewImg(this.thirdKey.texture.key);
+        if (this.eventZone == LABEL_ID.FIRST_KEY) {
+            this.firstKey.setVisible(true);
+            if (this.fold.indexOf(this.firstKey.texture.key) == -1) {
+                this.mySocket.emitAddNewImg(this.firstKey.texture.key);
             }
         }
 
-        if (this.eventZone == LABEL_ID.EMPTY_KEY) {
-            this.emptyKey.setVisible(true);
+        if (this.eventZone == LABEL_ID.SECOND_KEY) {
+            this.secondKey.setVisible(true);
+            if (this.fold.indexOf(this.secondKey.texture.key) == -1) {
+                this.mySocket.emitAddNewImg(this.secondKey.texture.key);
+            }
         }
 
-        if (this.eventZone == LABEL_ID.FOURTH_KEY) {
-            this.fourthKey.setVisible(true);
-            if (this.fold.indexOf(this.fourthKey.texture.key) == -1) {
-                this.mySocket.emitAddNewImg(this.fourthKey.texture.key);
-            }
+        if (this.eventZone == LABEL_ID.FIRST_JOKE) {
+            this.firstJoke.setVisible(true);
+        }
+
+        if (this.eventZone == LABEL_ID.SECOND_JOKE) {
+            this.secondJoke.setVisible(true);
         }
 
         this.overlayBackground.setVisible(true);
@@ -314,9 +348,10 @@ export class GameScene4 extends BaseScene {
 
     hideOverlay() {
         this.isOverlayVisible = false
-        if (this.thirdKey.visible) this.thirdKey.setVisible(false);
-        if (this.fourthKey.visible) this.fourthKey.setVisible(false);
-        if (this.emptyKey.visible) this.emptyKey.setVisible(false);
+        if (this.firstKey.visible) this.firstKey.setVisible(false);
+        if (this.secondKey.visible) this.secondKey.setVisible(false);
+        if (this.firstJoke.visible) this.firstJoke.setVisible(false);
+        if (this.secondJoke.visible) this.secondJoke.setVisible(false);
 
         this.overlayBackground.setVisible(false);
         this.closeButton.setVisible(false);
@@ -348,14 +383,14 @@ export class GameScene4 extends BaseScene {
                 context.showOverlay();
 
                 context.tweens.add({
-                    targets: [context.overlayBackground, context.closeButton, context.thirdKey, context.fourthKey, context.emptyKey],
+                    targets: [context.overlayBackground, context.closeButton, context.firstKey, context.secondKey, context.firstJoke, context.secondJoke],
                     alpha: 1,
                     duration: 500
                 });
             }
             else {
                 context.tweens.add({
-                    targets: [context.overlayBackground, context.closeButton, context.thirdKey, context.fourthKey, context.emptyKey],
+                    targets: [context.overlayBackground, context.closeButton, context.firstKey, context.secondKey, context.firstJoke, context.secondJoke],
                     alpha: 0,
                     duration: 500,
                     onComplete: () => {
