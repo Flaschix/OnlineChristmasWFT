@@ -131,9 +131,31 @@ export class GameScene extends BaseScene {
         //     isStatic: true,
         // })
 
+        const elf1 = this.matter.add.sprite(849 + 17, 1408 + 28 - 266, 'elf', null, {
+            label: `${LABEL_ID.EMPTY_KEY}`,
+            isStatic: true,
+            isSensor: true
+        });
 
+        const elf2 = this.matter.add.sprite(1687 + 17, 1277 + 28 - 266, 'elf', null, {
+            label: `${LABEL_ID.EMPTY_KEY}`,
+            isStatic: true,
+            isSensor: true
+        });
 
-        const arrBodies = [];
+        const elf3 = this.matter.add.sprite(418 + 17, 1132 + 28 - 266, 'elf', null, {
+            label: `${LABEL_ID.EMPTY_KEY}`,
+            isStatic: true,
+            isSensor: true
+        });
+
+        const elf4 = this.matter.add.sprite(1052 + 17, 797 + 28 - 266, 'elf', null, {
+            label: `${LABEL_ID.EMPTY_KEY}`,
+            isStatic: true,
+            isSensor: true
+        });
+
+        const arrBodies = [elf1, elf2, elf3, elf4];
 
 
         this.matterCollision.addOnCollideStart({

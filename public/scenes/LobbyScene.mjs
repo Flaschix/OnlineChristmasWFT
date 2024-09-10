@@ -58,6 +58,8 @@ export class LobbyScene extends Phaser.Scene {
         this.load.image('answer', 'assets/keyFrame/answer.png');
         this.load.image('emptyKey', 'assets/keyFrame/emptyKey.png');
 
+        this.load.image('elf', 'assets/character/elf.png');
+
         this.load.image('rightArrow', 'assets/button/rightArrow.png');
         this.load.image('leftArrow', 'assets/button/leftArrow.png');
 
@@ -284,7 +286,7 @@ export class LobbyScene extends Phaser.Scene {
             this.joinRoomContainer.destroy();
             this.newSpaceContainer.destroy();
             this.exitContainer.destroy();
-            this.scene.start(CST.SCENE.GAMESCENE6, { players });
+            this.scene.start(CST.SCENE.GAMESCENE, { players });
         });
 
         socket.on('roomCreated', (roomCode) => {
