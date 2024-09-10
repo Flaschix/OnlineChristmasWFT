@@ -154,8 +154,8 @@ export class BaseScene extends Phaser.Scene {
     }
 
     createFold() {
-        this.foldKeys = this.add.image(this.cameras.main.width / 2, this.cameras.main.height / 2 + 30, 'disk');
-        this.foldKeys.setScale(0.5);
+        this.foldKeys = this.add.image(this.cameras.main.width / 2, this.cameras.main.height / 2 + 10, 'disk');
+        this.foldKeys.setScale(0.7);
         this.foldKeys.setDepth(2);
         this.foldKeys.setScrollFactor(0);
         this.foldKeys.setVisible(false);

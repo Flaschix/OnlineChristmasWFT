@@ -124,16 +124,6 @@ export class GameScene4 extends BaseScene {
             isSensor: true
         })
 
-        // const thirdKey = this.matter.add.fromVertices(263.5 + 162.5, 194.5 + 186, '1.5 266.5 106.5 370.5 324 126 255 1.5', {
-        //     label: `${LABEL_ID.THIRD_KEY}`,
-        //     isStatic: true,
-        // })
-
-        // const fourthKey = this.matter.add.fromVertices(242.5 + 170.5, 1503.5 + 179.5, '1.5 95 113.5 1.5 339.5 244.5 268 358', {
-        //     label: `${LABEL_ID.FOURTH_KEY}`,
-        //     isStatic: true,
-        // })
-
         const box1 = this.matter.add.fromVertices(666 + 52, 1741.5 + 85, '103 0.5 13.5 0.5 1 98 1 169.5 103 169.5', {
             label: `${LABEL_ID.EMPTY_KEY}`,
             isStatic: true,
@@ -165,7 +155,7 @@ export class GameScene4 extends BaseScene {
         })
 
         const box7 = this.matter.add.fromVertices(413.5 + 40.5, 741.5 + 45.5, '0.5 0.5 0.5 90.5 80.5 90.5 80.5 0.5', {
-            label: `${LABEL_ID.EMPTY_KEY}`,
+            label: `${LABEL_ID.FIVETH_KEY}`,
             isStatic: true,
         })
 
@@ -246,19 +236,12 @@ export class GameScene4 extends BaseScene {
         this.overlayBackground.setAlpha(0); // Начальное значение прозрачности
 
         //Первый ключ
-        this.thirdKey = this.add.image(this.cameras.main.width / 2, this.cameras.main.height / 2 + 30, 'thirdKey');
-        this.thirdKey.setScale(0.5);
-        this.thirdKey.setVisible(false);
-        this.thirdKey.setDepth(2);
-        this.thirdKey.setScrollFactor(0);
-        this.thirdKey.setAlpha(0);
-
-        this.fourthKey = this.add.image(this.cameras.main.width / 2, this.cameras.main.height / 2 + 30, 'fourthKey');
-        this.fourthKey.setScale(0.5);
-        this.fourthKey.setVisible(false);
-        this.fourthKey.setDepth(2);
-        this.fourthKey.setScrollFactor(0);
-        this.fourthKey.setAlpha(0);
+        this.fivethKey = this.add.image(this.cameras.main.width / 2, this.cameras.main.height / 2 + 10, 'fivethKey');
+        this.fivethKey.setScale(0.7);
+        this.fivethKey.setVisible(false);
+        this.fivethKey.setDepth(2);
+        this.fivethKey.setScrollFactor(0);
+        this.fivethKey.setAlpha(0);
 
         this.emptyKey = this.add.image(this.cameras.main.width / 2, this.cameras.main.height / 2, 'emptyKey');
         this.emptyKey.setVisible(false);
@@ -278,7 +261,7 @@ export class GameScene4 extends BaseScene {
         this.closeButton.on('pointerdown', () => {
             this.isOverlayVisible = false;
             this.tweens.add({
-                targets: [this.closeButton, this.overlayBackground, this.thirdKey, this.fourthKey, this.emptyKey],
+                targets: [this.closeButton, this.overlayBackground, this.fivethKey, this.emptyKey],
                 alpha: 0,
                 duration: 500,
                 onComplete: () => {
@@ -313,14 +296,14 @@ export class GameScene4 extends BaseScene {
                     this.showOverlay();
 
                     this.tweens.add({
-                        targets: [this.closeButton, this.overlayBackground, this.thirdKey, this.fourthKey, this.emptyKey],
+                        targets: [this.closeButton, this.overlayBackground, this.fivethKey, this.emptyKey],
                         alpha: 1,
                         duration: 500
                     });
                 }
                 else {
                     this.tweens.add({
-                        targets: [this.closeButton, this.overlayBackground, this.thirdKey, this.fourthKey, this.emptyKey],
+                        targets: [this.closeButton, this.overlayBackground, this.fivethKey, this.emptyKey],
                         alpha: 0,
                         duration: 500,
                         onComplete: () => {
@@ -350,22 +333,15 @@ export class GameScene4 extends BaseScene {
     showOverlay() {
         this.isOverlayVisible = true
 
-        if (this.eventZone == LABEL_ID.THIRD_KEY) {
-            this.thirdKey.setVisible(true);
-            if (this.fold.indexOf(this.thirdKey.texture.key) == -1) {
-                this.mySocket.emitAddNewImg(this.thirdKey.texture.key);
+        if (this.eventZone == LABEL_ID.FIVETH_KEY) {
+            this.fivethKey.setVisible(true);
+            if (this.fold.indexOf(this.fivethKey.texture.key) == -1) {
+                this.mySocket.emitAddNewImg(this.fivethKey.texture.key);
             }
         }
 
         if (this.eventZone == LABEL_ID.EMPTY_KEY) {
             this.emptyKey.setVisible(true);
-        }
-
-        if (this.eventZone == LABEL_ID.FOURTH_KEY) {
-            this.fourthKey.setVisible(true);
-            if (this.fold.indexOf(this.fourthKey.texture.key) == -1) {
-                this.mySocket.emitAddNewImg(this.fourthKey.texture.key);
-            }
         }
 
         this.overlayBackground.setVisible(true);
@@ -374,8 +350,7 @@ export class GameScene4 extends BaseScene {
 
     hideOverlay() {
         this.isOverlayVisible = false
-        if (this.thirdKey.visible) this.thirdKey.setVisible(false);
-        if (this.fourthKey.visible) this.fourthKey.setVisible(false);
+        if (this.fivethKey.visible) this.fivethKey.setVisible(false);
         if (this.emptyKey.visible) this.emptyKey.setVisible(false);
 
         this.overlayBackground.setVisible(false);
@@ -408,14 +383,14 @@ export class GameScene4 extends BaseScene {
                 context.showOverlay();
 
                 context.tweens.add({
-                    targets: [context.overlayBackground, context.closeButton, context.thirdKey, context.fourthKey, context.emptyKey],
+                    targets: [context.overlayBackground, context.closeButton, context.fivethKey, context.emptyKey],
                     alpha: 1,
                     duration: 500
                 });
             }
             else {
                 context.tweens.add({
-                    targets: [context.overlayBackground, context.closeButton, context.thirdKey, context.fourthKey, context.emptyKey],
+                    targets: [context.overlayBackground, context.closeButton, context.fivethKey, context.emptyKey],
                     alpha: 0,
                     duration: 500,
                     onComplete: () => {

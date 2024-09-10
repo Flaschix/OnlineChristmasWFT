@@ -49,14 +49,14 @@ export class LobbyScene extends Phaser.Scene {
         this.load.spritesheet('character6', './assets/characterMap/character6.png', { frameWidth: 48, frameHeight: 64 });
 
 
-        this.load.image('firstKey', 'assets/keyFrame/firstKey.jpg');
-        this.load.image('secondKey', 'assets/keyFrame/secondKey.jpg');
-        this.load.image('thirdKey', 'assets/keyFrame/thirdKey.jpg');
-        this.load.image('fourthKey', 'assets/keyFrame/fourthKey.jpg');
-        this.load.image('fivethKey', 'assets/keyFrame/fivethKey.jpg');
-        this.load.image('sixethKey', 'assets/keyFrame/sixethKey.jpg');
-        this.load.image('answer', 'assets/keyFrame/answer.jpg');
-        this.load.image('notEnought', 'assets/keyFrame/notEnought.jpg');
+        this.load.image('firstKey', 'assets/keyFrame/firstKey.png');
+        this.load.image('secondKey', 'assets/keyFrame/secondKey.png');
+        this.load.image('thirdKey', 'assets/keyFrame/thirdKey.png');
+        this.load.image('fourthKey', 'assets/keyFrame/fourthKey.png');
+        this.load.image('fivethKey', 'assets/keyFrame/fivethKey.png');
+        this.load.image('sixethKey', 'assets/keyFrame/sixethKey.png');
+        this.load.image('answer', 'assets/keyFrame/answer.png');
+        this.load.image('notEnought', 'assets/keyFrame/notEnought.png');
         this.load.image('emptyKey', 'assets/keyFrame/emptyKey.png');
 
         this.load.image('rightArrow', 'assets/button/rightArrow.png');
@@ -285,7 +285,7 @@ export class LobbyScene extends Phaser.Scene {
             this.joinRoomContainer.destroy();
             this.newSpaceContainer.destroy();
             this.exitContainer.destroy();
-            this.scene.start(CST.SCENE.GAMESCENE3, { players });
+            this.scene.start(CST.SCENE.GAMESCENE, { players });
         });
 
         socket.on('roomCreated', (roomCode) => {
