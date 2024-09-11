@@ -82,11 +82,10 @@ export class GameScene extends BaseScene {
     }
 
     createUnWalkedObjects() {
-        this.matter.add.fromVertices(604, 600 + 628.5, '145 1085 220.5 1256 1 1256 1 0.5 1817.5 0.5 1817.5 147 1369.5 147 1338 244.5 1274 262.5 1223 244.5 1178.5 200 1116.5 200 1116.5 60.5 886 60.5 886 200 777 262.5 673 233.5 673 167 58.5 200 58.5 362 94 393 127.5 300 198.5 329 198.5 479.5 174 530.5 58.5 550.5 58.5 885.5 127.5 974 145 1085', { isStatic: true }, true)
-        this.matter.add.fromVertices(1720 + 125, 1100 + 554.5, '25.5 972.5 1.5 1108 236.5 1108 249.5 1 161 1 95.5 128.5 107.5 319 161 633 110 748.5 110 835 25.5 972.5', { isStatic: true }, true)
-        this.matter.add.fromVertices(1375 + 114, 1120 + 179, '133 141 133 357.5 227 357.5 227 20 206 1 153.5 1 74 85.5 0.5 96.5 0.5 141', { isStatic: true }, true)
-        this.matter.add.fromVertices(541 + 94, 793 + 103, '187.5 205 1 205 9.5 1 187.5 1', { isStatic: true }, true)
-        this.matter.add.fromVertices(60 + 90.5, 797 + 120, '180.5 239 11 239 1 1 180.5 1', { isStatic: true }, true)
+        this.matter.add.fromVertices(857, 867, '779 1579 779 1889 1 1889 1 1 1839 1 1839 559 1766 559 1749.5 578.5 1730 578.5 1703.5 565.5 1700.5 548.5 1686 527 1686 501.5 1694.5 474 1703.5 444.5 1730 422 1749.5 433.5 1761.5 455 1771.5 474 1771.5 376.5 1761.5 376.5 1749.5 395 1730 408.5 1703.5 408.5 1676 395 1666 372 1616.5 372 1616.5 391 1515 391 1511.5 570.5 1400 570.5 1387.5 376.5 1248 376.5 1236 395 1214.5 408.5 1185 408.5 1163.5 395 1153.5 376.5 1101 376.5 1101 533 1088 538.5 1078.5 533 1082 296.5 1054.5 296.5 1049 283 1049 136 897 136 897 283 886.5 293 865 296.5 865 533 853 538.5 841.5 533 841.5 372 770.5 372 770.5 454 595 454 589.5 572.5 481.5 572.5 476 454 327 454 223.5 578.5 161.5 522 161.5 756.5 181 756.5 234 739 293 756.5 293 817.5 333.5 817.5 333.5 980.5 324 990.5 324 1033.5 314.5 1033.5 314.5 1074.5 314.5 1112.5 290 1133 293.5 1251 483.5 1269 483.5 1255 468 1226 468 1183 488 1183 498 1150.5 534.5 1146.5 569.5 1156 591 1183 601.5 1183 601.5 1226 582.5 1238.5 582.5 1269 635.5 1269 635.5 1251 641.5 1238.5 653.5 1234.5 671.5 1234.5 677 1251 671.5 1293 586 1293 586 1540 480 1540 480 1419 325 1419 293.5 1419 277.5 1429.5 267 1579 779 1579', { isStatic: true }, true)
+        this.matter.add.fromVertices(1415 + 384, 700 + 685.5, '1 1057 1 1370.5 767 1370.5 767 0.5 637 0.5 637 169.5 588.5 136.5 503.5 224 497.5 273.5 520 309 588.5 360 644 284 644 737 603 750 588.5 779.5 588.5 806.5 611 825.5 644 806.5 644 855 603 855 603 923.5 575.5 938 562.5 982.5 575.5 1003 575.5 1057 1 1057', { isStatic: true }, true)
+        this.matter.add.fromVertices(1420 + 79.5, 1240 + 196.5, '10 392 0.5 298.5 28.5 120 28.5 32.5 48.5 32.5 62 1 91 1 126.5 1 144 32.5 158 32.5 158 71.5 144 98.5 121.5 280.5 114.5 392 10 392', { isStatic: true }, true)
+        this.matter.add.fromVertices(820 + 220, 970 + 125.5, '0.5 77 0.5 8 18 1 39.5 36 57 8 99 8 99 36 325 36 325 1 369.5 8 376.5 36 390.5 36 395 12.5 410.5 1 423.5 8 428 77 400 150 276.5 150 276.5 208.5 302 205 298.5 250 117 250 117 205 127.5 208.5 127.5 147 22.5 150 0.5 77', { isStatic: true }, true)
     }
 
     createPlayers(players, cameraMargin) {
@@ -114,55 +113,38 @@ export class GameScene extends BaseScene {
         // Создаем область, через которую игрок не может пройти
         // const bodyBookshellMiddle = this.matter.add.fromVertices(706 + 319.5, 1435 + 173.5, '1 1 1 254.121 230.5 346 419 346 638 254.121 638 1 1 1', { label: '1', isStatic: true })
 
-        const bodyDoor = this.matter.add.fromVertices(945.5 + 118.5, 767 + 115.5, '0.5 1 0.5 230.5 236 230.5 236 1', {
+        const bodyDoor = this.matter.add.fromVertices(957 + 79, 235.5 + 103, '1 0.5 1 205.5 157.5 205.5 157.5 0.5', {
             label: `${LABEL_ID.DOOR_FORWARD_ID}`,
             isStatic: true,
         })
 
-        // const firstKey = this.matter.add.fromVertices(509 + 192.5, 1657 + 71.5, '1 116 374.5 141.5 384 1 28.5 1 1 31 1 116', {
-        //     label: `${LABEL_ID.FIRST_KEY}`,
-        //     isStatic: true,
-        // })
-
-        // const secondkey = this.matter.add.fromVertices(1722.5 + 89, 582.5 + 408.5, '37.5 768 177 816 177 1.5 0.5 85 0.5 697 37.5 768', {
-        //     label: `${LABEL_ID.SECOND_KEY}`,
-        //     isStatic: true,
-        // })
-
-        const shellMiddle = this.matter.add.fromVertices(754 + 110.5, 1291 + 170.5, '1 1 1 340.5 220.5 340.5 220.5 1', {
-            label: `${LABEL_ID.EMPTY_KEY}`,
-            isStatic: true,
-        })
-        const shellLeft = this.matter.add.fromVertices(93 + 223, 1375.5 + 273.5, '445 448.5 380.5 515 1 546 1 0.5 445 0.5', {
-            label: `${LABEL_ID.EMPTY_KEY}`,
-            isStatic: true,
-        })
-        const tableLeft = this.matter.add.fromVertices(233.5 + 155.5, 795 + 138.5, '310 276.5 0.5 276.5 0.5 1 310 1', {
+        const box1 = this.matter.add.fromVertices(382 + 198.5, 1408 + 104, '1 207.5 1 1 396 1 396 207.5', {
             label: `${LABEL_ID.EMPTY_KEY}`,
             isStatic: true,
         })
 
-        const tableRight1 = this.matter.add.fromVertices(1422 + 96.5, 634 + 172, '1 1 1 343.5 192 343.5 192 1', {
+        const box2 = this.matter.add.fromVertices(1280 + 202.5, 1404 + 103, '1 205 1 1 404.5 1 404.5 205', {
             label: `${LABEL_ID.EMPTY_KEY}`,
             isStatic: true,
         })
 
-        const tableRight2 = this.matter.add.fromVertices(1636 + 92, 640 + 182.5, '1 1 1 364 183 364 183 1', {
+        const box3 = this.matter.add.fromVertices(946.5 + 92, 831.5 + 179.5, '0.5 358 0.5 0.5 183 0.5 183 358', {
             label: `${LABEL_ID.EMPTY_KEY}`,
             isStatic: true,
         })
 
-        const tableRightDown = this.matter.add.fromVertices(1320 + 254.5, 1518 + 169.5, '1.5 1 20.5 338.5 430 338.5 508 1', {
+        const box4 = this.matter.add.fromVertices(384.5 + 230.5, 452 + 95, '0.5 189 0.5 1 460 1 460 189', {
+            label: `${LABEL_ID.FIRST_KEY}`,
+            isStatic: true,
+        })
+
+        const box5 = this.matter.add.fromVertices(1331.5 + 180.5, 449.5 + 96.5, '0.5 192 0.5 0.5 360 0.5 360 192', {
             label: `${LABEL_ID.EMPTY_KEY}`,
             isStatic: true,
         })
 
-        const tableRightMiddle = this.matter.add.fromVertices(1599 + 163, 1250.5 + 113, '1 225 1 0.5 325.5 0.5 325.5 225', {
-            label: `${LABEL_ID.EMPTY_KEY}`,
-            isStatic: true,
-        })
 
-        const arrBodies = [bodyDoor, shellMiddle, tableRightMiddle, tableRightDown, tableRight1, tableRight2, tableLeft, shellLeft];
+        const arrBodies = [bodyDoor, box1, box2, box3, box4, box5];
 
 
         this.matterCollision.addOnCollideStart({
@@ -213,19 +195,12 @@ export class GameScene extends BaseScene {
         this.overlayBackground.setAlpha(0); // Начальное значение прозрачности
 
         //Первый ключ
-        this.firstKey = this.add.image(this.cameras.main.width / 2, this.cameras.main.height / 2 + 30, 'firstKey');
-        this.firstKey.setScale(0.5);
+        this.firstKey = this.add.image(this.cameras.main.width / 2, this.cameras.main.height / 2, 'firstKey');
+        this.firstKey.setScale(0.85);
         this.firstKey.setVisible(false);
         this.firstKey.setDepth(2);
         this.firstKey.setScrollFactor(0);
         this.firstKey.setAlpha(0);
-
-        this.secondkey = this.add.image(this.cameras.main.width / 2, this.cameras.main.height / 2 + 30, 'secondKey');
-        this.secondkey.setScale(0.5);
-        this.secondkey.setVisible(false);
-        this.secondkey.setDepth(2);
-        this.secondkey.setScrollFactor(0);
-        this.secondkey.setAlpha(0);
 
         this.emptyKey = this.add.image(this.cameras.main.width / 2, this.cameras.main.height / 2, 'emptyKey');
         this.emptyKey.setVisible(false);
@@ -244,7 +219,7 @@ export class GameScene extends BaseScene {
         this.closeButton.on('pointerdown', () => {
             this.isOverlayVisible = false;
             this.tweens.add({
-                targets: [this.closeButton, this.overlayBackground, this.firstKey, this.secondkey, this.emptyKey],
+                targets: [this.closeButton, this.overlayBackground, this.firstKey, this.emptyKey],
                 alpha: 0,
                 duration: 500,
                 onComplete: () => {
@@ -274,14 +249,14 @@ export class GameScene extends BaseScene {
                     this.showOverlay();
 
                     this.tweens.add({
-                        targets: [this.closeButton, this.overlayBackground, this.firstKey, this.secondkey, this.emptyKey],
+                        targets: [this.closeButton, this.overlayBackground, this.firstKey, this.emptyKey],
                         alpha: 1,
                         duration: 500
                     });
                 }
                 else {
                     this.tweens.add({
-                        targets: [this.closeButton, this.overlayBackground, this.firstKey, this.secondkey, this.emptyKey],
+                        targets: [this.closeButton, this.overlayBackground, this.firstKey, this.emptyKey],
                         alpha: 0,
                         duration: 500,
                         onComplete: () => {
@@ -299,7 +274,7 @@ export class GameScene extends BaseScene {
     moveForwardRoom() {
         this.isInZone = false;
         this.eventZone = null;
-        this.mySocket.emitSwitchScene(CST.SCENE.GAMESCENE2, 1024, 1900);
+        this.mySocket.emitSwitchScene(CST.SCENE.GAMESCENE2, 1024, 1960);
     }
 
     showOverlay() {
@@ -309,13 +284,6 @@ export class GameScene extends BaseScene {
             this.firstKey.setVisible(true);
             if (this.fold.indexOf(this.firstKey.texture.key) == -1) {
                 this.mySocket.emitAddNewImg(this.firstKey.texture.key);
-            }
-        }
-
-        if (this.eventZone == LABEL_ID.SECOND_KEY) {
-            this.secondkey.setVisible(true);
-            if (this.fold.indexOf(this.secondkey.texture.key) == -1) {
-                this.mySocket.emitAddNewImg(this.secondkey.texture.key);
             }
         }
 
@@ -330,7 +298,6 @@ export class GameScene extends BaseScene {
     hideOverlay() {
         this.isOverlayVisible = false
         if (this.firstKey.visible) this.firstKey.setVisible(false);
-        if (this.secondkey.visible) this.secondkey.setVisible(false);
         if (this.emptyKey.visible) this.emptyKey.setVisible(false);
 
         this.overlayBackground.setVisible(false);
@@ -358,14 +325,14 @@ export class GameScene extends BaseScene {
                 context.showOverlay();
 
                 context.tweens.add({
-                    targets: [context.overlayBackground, context.closeButton, context.firstKey, context.secondkey, context.emptyKey],
+                    targets: [context.overlayBackground, context.closeButton, context.firstKey, context.emptyKey],
                     alpha: 1,
                     duration: 500
                 });
             }
             else {
                 context.tweens.add({
-                    targets: [context.overlayBackground, context.closeButton, context.firstKey, context.secondkey, context.emptyKey],
+                    targets: [context.overlayBackground, context.closeButton, context.firstKey, context.emptyKey],
                     alpha: 0,
                     duration: 500,
                     onComplete: () => {
