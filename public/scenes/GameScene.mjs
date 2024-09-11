@@ -152,7 +152,7 @@ export class GameScene extends BaseScene {
             isSensor: true
         });
 
-        const elf6 = this.matter.add.sprite(1540 + 32, 940 + 42, 'elf6', null, {
+        const elf6 = this.matter.add.sprite(1545 + 32, 940 + 42, 'elf6', null, {
             label: `${LABEL_ID.SECOND_JOKE}`,
             isStatic: true,
             isSensor: true
