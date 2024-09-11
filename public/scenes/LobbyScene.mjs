@@ -27,7 +27,7 @@ export class LobbyScene extends Phaser.Scene {
         this.loadingSprite.play('loadingAnimation');
 
 
-        this.load.image('backgroundMenu', './assets/background/background-menu.png');
+        this.load.image('backgroundMenu', './assets/background/background-menu.jpg');
 
         this.load.image('pressX', 'assets/icon/pressX.png');
         this.load.image('closeIcon', 'assets/icon/closeIcon.png');
@@ -49,16 +49,24 @@ export class LobbyScene extends Phaser.Scene {
         this.load.spritesheet('character6', './assets/characterMap/character6.png', { frameWidth: 48, frameHeight: 64 });
 
 
-        this.load.image('firstKey', 'assets/keyFrame/firstKey.png');
-        this.load.image('secondKey', 'assets/keyFrame/secondKey.png');
-        this.load.image('thirdKey', 'assets/keyFrame/thirdKey.png');
-        this.load.image('fourthKey', 'assets/keyFrame/fourthKey.png');
-        this.load.image('fivethKey', 'assets/keyFrame/fivethKey.png');
-        this.load.image('sixethKey', 'assets/keyFrame/sixethKey.png');
-        this.load.image('answer', 'assets/keyFrame/answer.png');
-        this.load.image('emptyKey', 'assets/keyFrame/emptyKey.png');
+        this.load.image('answer1', 'assets/keyFrame/Answer 1.png');
+        this.load.image('answer2', 'assets/keyFrame/Answer 2.png');
+        this.load.image('answer3', 'assets/keyFrame/Answer 3.png');
+        this.load.image('answer4', 'assets/keyFrame/Answer 4.png');
+        this.load.image('answer5', 'assets/keyFrame/Answer 5.png');
+        this.load.image('answer6', 'assets/keyFrame/Answer 6.png');
+        this.load.image('answer7', 'assets/keyFrame/Answer 7.png');
+        this.load.image('answer8', 'assets/keyFrame/Answer 8.png');
+        this.load.image('answer9', 'assets/keyFrame/Answer 9.png');
+        this.load.image('answer10', 'assets/keyFrame/Answer 10.png');
 
-        this.load.image('elf', 'assets/character/elf.png');
+
+        this.load.image('elf1', 'assets/elf/elf1.png');
+        this.load.image('elf2', 'assets/elf/elf2.png');
+        this.load.image('elf3', 'assets/elf/elf3.png');
+        this.load.image('elf4', 'assets/elf/elf4.png');
+        this.load.image('elf5', 'assets/elf/elf5.png');
+        this.load.image('elf6', 'assets/elf/elf6.png');
 
         this.load.image('rightArrow', 'assets/button/rightArrow.png');
         this.load.image('leftArrow', 'assets/button/leftArrow.png');
