@@ -56,9 +56,9 @@ export class GameScene4 extends BaseScene {
         createAvatarDialog(this, this.enterNewSettingsInAvatarDialog, this.closeAvatarDialog, this.player.room, isMobile());
 
 
-        // if (!this.textures.exists(MAP_SETTINGS.MAP_FULL2)) {
+        // if (!this.textures.exists(MAP_SETTINGS.MAP_FULL1)) {
 
-        //     this.loadPlusTexture(MAP_SETTINGS.MAP_FULL2, './assets/map/tample_full_2.png');
+        //     this.loadPlusTexture(MAP_SETTINGS.MAP_FULL1, './assets/map/tample_full_1.png');
 
         //     this.fullMap = false;
         // }
@@ -82,9 +82,10 @@ export class GameScene4 extends BaseScene {
     }
 
     createUnWalkedObjects() {
-        this.matter.add.fromVertices(890, 586.5 + 560, '105 1076.5 0.5 1011 0.5 0.5 1931 0.5 1860.5 225 1821.5 246.5 1802 294 1802 358 1745.5 391.5 1688.5 381 1642.5 372 1642.5 320.5 1688.5 246.5 1733 200.5 1350.5 200.5 1350.5 372 1320.5 358 1320.5 267.5 1239 267.5 1181 246.5 1142 225 1142 75 920.5 75 920.5 246.5 920.5 303 818 342 791.5 400.5 736.5 400.5 724 358 724 190 659 190 635.5 225 659 282 659 358 607.5 372 607.5 418 556 418 556 372 506.5 372 494 267.5 520.5 246.5 538.5 190 287 190 347.5 303 437.5 443 437.5 524.5 494 545.5 754.5 641 765 595 904.5 595 947 666 920.5 843 834 903 754.5 903 754.5 859 724 859 724 919 699.5 919 699.5 823.5 506.5 823.5 506.5 882 480 956 393.5 1096 105 1076.5', { isStatic: true }, true)
-        this.matter.add.fromVertices(1440 + 339, 1060 + 402, '519 785 676.5 767 579 1 413 1 413 52 457 52 457 296.5 413 296.5 384.5 243.5 340.5 202.5 287 220.5 287 296.5 413 516 0.5 516 0.5 618.5 398.5 618.5 328 691 275 767 368.5 802.5 519 785', { isStatic: true }, true)
-
+        this.matter.add.fromVertices(857, 867, '779 1579 779 1889 1 1889 1 1 1839 1 1839 559 1766 559 1749.5 578.5 1730 578.5 1703.5 565.5 1700.5 548.5 1686 527 1686 501.5 1694.5 474 1703.5 444.5 1730 422 1749.5 433.5 1761.5 455 1771.5 474 1771.5 376.5 1761.5 376.5 1749.5 395 1730 408.5 1703.5 408.5 1676 395 1666 372 1616.5 372 1616.5 391 1515 391 1511.5 570.5 1400 570.5 1387.5 376.5 1248 376.5 1236 395 1214.5 408.5 1185 408.5 1163.5 395 1153.5 376.5 1101 376.5 1101 533 1088 538.5 1078.5 533 1082 296.5 1054.5 296.5 1049 283 1049 136 897 136 897 283 886.5 293 865 296.5 865 533 853 538.5 841.5 533 841.5 372 770.5 372 770.5 454 595 454 589.5 572.5 481.5 572.5 476 454 327 454 223.5 578.5 161.5 522 161.5 756.5 181 756.5 234 739 293 756.5 293 817.5 333.5 817.5 333.5 980.5 324 990.5 324 1033.5 314.5 1033.5 314.5 1074.5 314.5 1112.5 290 1133 293.5 1251 483.5 1269 483.5 1255 468 1226 468 1183 488 1183 498 1150.5 534.5 1146.5 569.5 1156 591 1183 601.5 1183 601.5 1226 582.5 1238.5 582.5 1269 635.5 1269 635.5 1251 641.5 1238.5 653.5 1234.5 671.5 1234.5 677 1251 671.5 1293 586 1293 586 1540 480 1540 480 1419 325 1419 293.5 1419 277.5 1429.5 267 1579 779 1579', { isStatic: true }, true)
+        this.matter.add.fromVertices(1415 + 384, 700 + 685.5, '1 1057 1 1370.5 767 1370.5 767 0.5 637 0.5 637 169.5 588.5 136.5 503.5 224 497.5 273.5 520 309 588.5 360 644 284 644 737 603 750 588.5 779.5 588.5 806.5 611 825.5 644 806.5 644 855 603 855 603 923.5 575.5 938 562.5 982.5 575.5 1003 575.5 1057 1 1057', { isStatic: true }, true)
+        this.matter.add.fromVertices(1420 + 79.5, 1240 + 196.5, '10 392 0.5 298.5 28.5 120 28.5 32.5 48.5 32.5 62 1 91 1 126.5 1 144 32.5 158 32.5 158 71.5 144 98.5 121.5 280.5 114.5 392 10 392', { isStatic: true }, true)
+        this.matter.add.fromVertices(820 + 220, 970 + 125.5, '0.5 77 0.5 8 18 1 39.5 36 57 8 99 8 99 36 325 36 325 1 369.5 8 376.5 36 390.5 36 395 12.5 410.5 1 423.5 8 428 77 400 150 276.5 150 276.5 208.5 302 205 298.5 250 117 250 117 205 127.5 208.5 127.5 147 22.5 150 0.5 77', { isStatic: true }, true)
     }
 
     createPlayers(players, cameraMargin) {
@@ -95,7 +96,7 @@ export class GameScene4 extends BaseScene {
 
                 //настраиваем камеру игрока
                 this.cameras.main.startFollow(this.player);
-                /*if (this.textures.exists(MAP_SETTINGS.MAP_FULL2))*/ this.cameras.main.setBounds(cameraMargin.left, cameraMargin.top, this.map.width + cameraMargin.right, this.map.height + cameraMargin.bottom);
+                /*if (this.textures.exists(MAP_SETTINGS.MAP_FULL1))*/ this.cameras.main.setBounds(cameraMargin.left, cameraMargin.top, this.map.width + cameraMargin.right, this.map.height + cameraMargin.bottom);
                 // else this.cameras.main.setBounds(cameraMargin.left, cameraMargin.top, this.map.width * MAP_SETTINGS.MAP_SCALE_2 + cameraMargin.right, this.map.height * MAP_SETTINGS.MAP_SCALE_2 + cameraMargin.bottom);
             } else {
                 this.playersController.createOtherPlayer(this, players[id], this.otherPlayers);
@@ -109,49 +110,41 @@ export class GameScene4 extends BaseScene {
         highlightGraphics.lineStyle(2, 0x06ff01, 1);
         highlightGraphics.setDepth(0);
 
-        const backDoor = this.matter.add.fromVertices(855 + 247.5, 1932.5 + 59, '1 0.5 1 117.5 494.5 117.5 494.5 0.5', {
-            label: `${LABEL_ID.DOOR_BACK_ID}`,
-            isStatic: true,
-            isSensor: true
-        })
+        // Создаем область, через которую игрок не может пройти
+        // const bodyBookshellMiddle = this.matter.add.fromVertices(706 + 319.5, 1435 + 173.5, '1 1 1 254.121 230.5 346 419 346 638 254.121 638 1 1 1', { label: '1', isStatic: true })
 
-        const forwardDoor = this.matter.add.fromVertices(910 + 117.5, 740.5 + 140.5, '1 0.5 1 280 234.5 280 234.5 0.5', {
+        const bodyDoor = this.matter.add.fromVertices(957 + 79, 235.5 + 103, '1 0.5 1 205.5 157.5 205.5 157.5 0.5', {
             label: `${LABEL_ID.DOOR_FORWARD_ID}`,
             isStatic: true,
         })
 
-        // const thirdKey = this.matter.add.fromVertices(263.5 + 162.5, 194.5 + 186, '1.5 266.5 106.5 370.5 324 126 255 1.5', {
-        //     label: `${LABEL_ID.THIRD_KEY}`,
-        //     isStatic: true,
-        // })
-
-        // const fourthKey = this.matter.add.fromVertices(242.5 + 170.5, 1503.5 + 179.5, '1.5 95 113.5 1.5 339.5 244.5 268 358', {
-        //     label: `${LABEL_ID.FOURTH_KEY}`,
-        //     isStatic: true,
-        // })
-
-        const shell1 = this.matter.add.fromVertices(480 + 124, 1289 + 173.5, '247 346 9.5 346 1 8 87.5 1 247 105.5', {
+        const box1 = this.matter.add.fromVertices(382 + 198.5, 1408 + 104, '1 207.5 1 1 396 1 396 207.5', {
             label: `${LABEL_ID.EMPTY_KEY}`,
             isStatic: true,
         })
 
-        const shell2 = this.matter.add.fromVertices(150.5 + 294.5, 788 + 114, '588 227.5 0.5 227.5 0.5 1 588 1', {
+        const box2 = this.matter.add.fromVertices(1280 + 202.5, 1404 + 103, '1 205 1 1 404.5 1 404.5 205', {
             label: `${LABEL_ID.EMPTY_KEY}`,
             isStatic: true,
         })
 
-        const shell3 = this.matter.add.fromVertices(1310 + 270, 786.5 + 117.5, '539 234 1 234 1 0.5 539 0.5', {
+        const box3 = this.matter.add.fromVertices(946.5 + 92, 831.5 + 179.5, '0.5 358 0.5 0.5 183 0.5 183 358', {
             label: `${LABEL_ID.EMPTY_KEY}`,
             isStatic: true,
         })
 
-        const shell4 = this.matter.add.fromVertices(1352.5 + 215.5, 1388 + 117.5, '0.5 234.5 0.5 1 430.5 1 430.5 234.5', {
+        const box4 = this.matter.add.fromVertices(384.5 + 230.5, 452 + 95, '0.5 189 0.5 1 460 1 460 189', {
+            label: `${LABEL_ID.FIRST_KEY}`,
+            isStatic: true,
+        })
+
+        const box5 = this.matter.add.fromVertices(1331.5 + 180.5, 449.5 + 96.5, '0.5 192 0.5 0.5 360 0.5 360 192', {
             label: `${LABEL_ID.EMPTY_KEY}`,
             isStatic: true,
         })
 
 
-        const arrBodies = [backDoor, forwardDoor, shell1, shell2, shell3, shell4];
+        const arrBodies = [bodyDoor, box1, box2, box3, box4, box5];
 
 
         this.matterCollision.addOnCollideStart({
@@ -202,26 +195,18 @@ export class GameScene4 extends BaseScene {
         this.overlayBackground.setAlpha(0); // Начальное значение прозрачности
 
         //Первый ключ
-        this.thirdKey = this.add.image(this.cameras.main.width / 2, this.cameras.main.height / 2 + 30, 'thirdKey');
-        this.thirdKey.setScale(0.5);
-        this.thirdKey.setVisible(false);
-        this.thirdKey.setDepth(2);
-        this.thirdKey.setScrollFactor(0);
-        this.thirdKey.setAlpha(0);
-
-        this.fourthKey = this.add.image(this.cameras.main.width / 2, this.cameras.main.height / 2 + 30, 'fourthKey');
-        this.fourthKey.setScale(0.5);
-        this.fourthKey.setVisible(false);
-        this.fourthKey.setDepth(2);
-        this.fourthKey.setScrollFactor(0);
-        this.fourthKey.setAlpha(0);
+        this.firstKey = this.add.image(this.cameras.main.width / 2, this.cameras.main.height / 2, 'firstKey');
+        this.firstKey.setScale(0.85);
+        this.firstKey.setVisible(false);
+        this.firstKey.setDepth(2);
+        this.firstKey.setScrollFactor(0);
+        this.firstKey.setAlpha(0);
 
         this.emptyKey = this.add.image(this.cameras.main.width / 2, this.cameras.main.height / 2, 'emptyKey');
         this.emptyKey.setVisible(false);
         this.emptyKey.setDepth(2);
         this.emptyKey.setScrollFactor(0);
         this.emptyKey.setAlpha(0);
-
 
         this.closeButton = this.add.image(this.cameras.main.width - 200, 85, 'closeIcon');
         this.closeButton.setDisplaySize(50, 50);
@@ -234,7 +219,7 @@ export class GameScene4 extends BaseScene {
         this.closeButton.on('pointerdown', () => {
             this.isOverlayVisible = false;
             this.tweens.add({
-                targets: [this.closeButton, this.overlayBackground, this.thirdKey, this.fourthKey, this.emptyKey],
+                targets: [this.closeButton, this.overlayBackground, this.firstKey, this.emptyKey],
                 alpha: 0,
                 duration: 500,
                 onComplete: () => {
@@ -269,14 +254,14 @@ export class GameScene4 extends BaseScene {
                     this.showOverlay();
 
                     this.tweens.add({
-                        targets: [this.closeButton, this.overlayBackground, this.thirdKey, this.fourthKey, this.emptyKey],
+                        targets: [this.closeButton, this.overlayBackground, this.firstKey, this.emptyKey],
                         alpha: 1,
                         duration: 500
                     });
                 }
                 else {
                     this.tweens.add({
-                        targets: [this.closeButton, this.overlayBackground, this.thirdKey, this.fourthKey, this.emptyKey],
+                        targets: [this.closeButton, this.overlayBackground, this.firstKey, this.emptyKey],
                         alpha: 0,
                         duration: 500,
                         onComplete: () => {
@@ -294,34 +279,27 @@ export class GameScene4 extends BaseScene {
     moveForwardRoom() {
         this.isInZone = false;
         this.eventZone = null;
-        this.mySocket.emitSwitchScene(CST.SCENE.GAMESCENE5, 1024, 1910);
+        this.mySocket.emitSwitchScene(CST.SCENE.GAMESCENE5, 1024, 1960);
     }
 
     moveBackRoom() {
         this.isInZone = false;
         this.eventZone = null;
-        this.mySocket.emitSwitchScene(CST.SCENE.GAMESCENE3, 1024, 1090);
+        this.mySocket.emitSwitchScene(CST.SCENE.GAMESCENE3, 1024, 500);
     }
 
     showOverlay() {
         this.isOverlayVisible = true
 
-        if (this.eventZone == LABEL_ID.THIRD_KEY) {
-            this.thirdKey.setVisible(true);
-            if (this.fold.indexOf(this.thirdKey.texture.key) == -1) {
-                this.mySocket.emitAddNewImg(this.thirdKey.texture.key);
+        if (this.eventZone == LABEL_ID.FIRST_KEY) {
+            this.firstKey.setVisible(true);
+            if (this.fold.indexOf(this.firstKey.texture.key) == -1) {
+                this.mySocket.emitAddNewImg(this.firstKey.texture.key);
             }
         }
 
         if (this.eventZone == LABEL_ID.EMPTY_KEY) {
             this.emptyKey.setVisible(true);
-        }
-
-        if (this.eventZone == LABEL_ID.FOURTH_KEY) {
-            this.fourthKey.setVisible(true);
-            if (this.fold.indexOf(this.fourthKey.texture.key) == -1) {
-                this.mySocket.emitAddNewImg(this.fourthKey.texture.key);
-            }
         }
 
         this.overlayBackground.setVisible(true);
@@ -330,8 +308,7 @@ export class GameScene4 extends BaseScene {
 
     hideOverlay() {
         this.isOverlayVisible = false
-        if (this.thirdKey.visible) this.thirdKey.setVisible(false);
-        if (this.fourthKey.visible) this.fourthKey.setVisible(false);
+        if (this.firstKey.visible) this.firstKey.setVisible(false);
         if (this.emptyKey.visible) this.emptyKey.setVisible(false);
 
         this.overlayBackground.setVisible(false);
@@ -364,14 +341,14 @@ export class GameScene4 extends BaseScene {
                 context.showOverlay();
 
                 context.tweens.add({
-                    targets: [context.overlayBackground, context.closeButton, context.thirdKey, context.fourthKey, context.emptyKey],
+                    targets: [context.overlayBackground, context.closeButton, context.firstKey, context.emptyKey],
                     alpha: 1,
                     duration: 500
                 });
             }
             else {
                 context.tweens.add({
-                    targets: [context.overlayBackground, context.closeButton, context.thirdKey, context.fourthKey, context.emptyKey],
+                    targets: [context.overlayBackground, context.closeButton, context.firstKey, context.emptyKey],
                     alpha: 0,
                     duration: 500,
                     onComplete: () => {
@@ -390,10 +367,10 @@ export class GameScene4 extends BaseScene {
         super.update();
 
         // if (!this.fullMap) {
-        //     if (this.textures.exists(MAP_SETTINGS.MAP_FULL2)) {
+        //     if (this.textures.exists(MAP_SETTINGS.MAP_FULL1)) {
         //         this.fullMap = true;
 
-        //         this.loadedResolutionMap(MAP_SETTINGS.MAP_FULL2, 1, 1)
+        //         this.loadedResolutionMap(MAP_SETTINGS.MAP_FULL1, 1, 1)
         //     }
         // }
     }
