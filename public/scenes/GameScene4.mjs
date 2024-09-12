@@ -118,6 +118,12 @@ export class GameScene4 extends BaseScene {
             isStatic: true,
         })
 
+        const backDoor = this.matter.add.fromVertices(849.5 + 169.5, 1870.5 + 85.5, '0.5 0.5 0.5 170.5 338 170.5 338 0.5', {
+            label: `${LABEL_ID.DOOR_BACK_ID}`,
+            isStatic: true,
+            isSensor: true
+        })
+
         const box1 = this.matter.add.fromVertices(382 + 198.5, 1408 + 104, '1 207.5 1 1 396 1 396 207.5', {
             label: `${LABEL_ID.EMPTY_KEY}`,
             isStatic: true,
@@ -134,17 +140,17 @@ export class GameScene4 extends BaseScene {
         })
 
         const box4 = this.matter.add.fromVertices(384.5 + 230.5, 452 + 95, '0.5 189 0.5 1 460 1 460 189', {
-            label: `${LABEL_ID.FIRST_KEY}`,
-            isStatic: true,
-        })
-
-        const box5 = this.matter.add.fromVertices(1331.5 + 180.5, 449.5 + 96.5, '0.5 192 0.5 0.5 360 0.5 360 192', {
             label: `${LABEL_ID.EMPTY_KEY}`,
             isStatic: true,
         })
 
+        const box5 = this.matter.add.fromVertices(1331.5 + 180.5, 449.5 + 96.5, '0.5 192 0.5 0.5 360 0.5 360 192', {
+            label: `${LABEL_ID.FIRST_KEY}`,
+            isStatic: true,
+        })
 
-        const arrBodies = [bodyDoor, box1, box2, box3, box4, box5];
+
+        const arrBodies = [bodyDoor, box1, box2, box3, box4, box5, backDoor];
 
 
         this.matterCollision.addOnCollideStart({
@@ -195,12 +201,12 @@ export class GameScene4 extends BaseScene {
         this.overlayBackground.setAlpha(0); // Начальное значение прозрачности
 
         //Первый ключ
-        this.firstKey = this.add.image(this.cameras.main.width / 2, this.cameras.main.height / 2, 'firstKey');
-        this.firstKey.setScale(0.85);
-        this.firstKey.setVisible(false);
-        this.firstKey.setDepth(2);
-        this.firstKey.setScrollFactor(0);
-        this.firstKey.setAlpha(0);
+        this.fivethKey = this.add.image(this.cameras.main.width / 2, this.cameras.main.height / 2, 'fivethKey');
+        this.fivethKey.setScale(0.85);
+        this.fivethKey.setVisible(false);
+        this.fivethKey.setDepth(2);
+        this.fivethKey.setScrollFactor(0);
+        this.fivethKey.setAlpha(0);
 
         this.emptyKey = this.add.image(this.cameras.main.width / 2, this.cameras.main.height / 2, 'emptyKey');
         this.emptyKey.setVisible(false);
@@ -219,7 +225,7 @@ export class GameScene4 extends BaseScene {
         this.closeButton.on('pointerdown', () => {
             this.isOverlayVisible = false;
             this.tweens.add({
-                targets: [this.closeButton, this.overlayBackground, this.firstKey, this.emptyKey],
+                targets: [this.closeButton, this.overlayBackground, this.fivethKey, this.emptyKey],
                 alpha: 0,
                 duration: 500,
                 onComplete: () => {
@@ -254,14 +260,14 @@ export class GameScene4 extends BaseScene {
                     this.showOverlay();
 
                     this.tweens.add({
-                        targets: [this.closeButton, this.overlayBackground, this.firstKey, this.emptyKey],
+                        targets: [this.closeButton, this.overlayBackground, this.fivethKey, this.emptyKey],
                         alpha: 1,
                         duration: 500
                     });
                 }
                 else {
                     this.tweens.add({
-                        targets: [this.closeButton, this.overlayBackground, this.firstKey, this.emptyKey],
+                        targets: [this.closeButton, this.overlayBackground, this.fivethKey, this.emptyKey],
                         alpha: 0,
                         duration: 500,
                         onComplete: () => {
@@ -279,22 +285,22 @@ export class GameScene4 extends BaseScene {
     moveForwardRoom() {
         this.isInZone = false;
         this.eventZone = null;
-        this.mySocket.emitSwitchScene(CST.SCENE.GAMESCENE5, 1024, 1960);
+        this.mySocket.emitSwitchScene(CST.SCENE.GAMESCENE5, 1024, 1860);
     }
 
     moveBackRoom() {
         this.isInZone = false;
         this.eventZone = null;
-        this.mySocket.emitSwitchScene(CST.SCENE.GAMESCENE3, 1024, 500);
+        this.mySocket.emitSwitchScene(CST.SCENE.GAMESCENE3, 1024, 420);
     }
 
     showOverlay() {
         this.isOverlayVisible = true
 
         if (this.eventZone == LABEL_ID.FIRST_KEY) {
-            this.firstKey.setVisible(true);
-            if (this.fold.indexOf(this.firstKey.texture.key) == -1) {
-                this.mySocket.emitAddNewImg(this.firstKey.texture.key);
+            this.fivethKey.setVisible(true);
+            if (this.fold.indexOf(this.fivethKey.texture.key) == -1) {
+                this.mySocket.emitAddNewImg(this.fivethKey.texture.key);
             }
         }
 
@@ -308,7 +314,7 @@ export class GameScene4 extends BaseScene {
 
     hideOverlay() {
         this.isOverlayVisible = false
-        if (this.firstKey.visible) this.firstKey.setVisible(false);
+        if (this.fivethKey.visible) this.fivethKey.setVisible(false);
         if (this.emptyKey.visible) this.emptyKey.setVisible(false);
 
         this.overlayBackground.setVisible(false);
@@ -341,14 +347,14 @@ export class GameScene4 extends BaseScene {
                 context.showOverlay();
 
                 context.tweens.add({
-                    targets: [context.overlayBackground, context.closeButton, context.firstKey, context.emptyKey],
+                    targets: [context.overlayBackground, context.closeButton, context.fivethKey, context.emptyKey],
                     alpha: 1,
                     duration: 500
                 });
             }
             else {
                 context.tweens.add({
-                    targets: [context.overlayBackground, context.closeButton, context.firstKey, context.emptyKey],
+                    targets: [context.overlayBackground, context.closeButton, context.fivethKey, context.emptyKey],
                     alpha: 0,
                     duration: 500,
                     onComplete: () => {
