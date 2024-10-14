@@ -66,13 +66,6 @@ export class LobbyScene extends Phaser.Scene {
         this.load.spritesheet('elf-dance4', './assets/elf/elf_dance4.png', { frameWidth: 76, frameHeight: 124 });
         this.load.spritesheet('elf-dance5', './assets/elf/elf_dance5.png', { frameWidth: 76, frameHeight: 124 });
 
-        this.load.image('elf1', 'assets/elf/elf1.png');
-        this.load.image('elf2', 'assets/elf/elf2.png');
-        this.load.image('elf3', 'assets/elf/elf3.png');
-        this.load.image('elf4', 'assets/elf/elf4.png');
-        this.load.image('elf5', 'assets/elf/elf5.png');
-        this.load.image('elf6', 'assets/elf/elf6.png');
-
         this.load.image('rightArrow', 'assets/button/rightArrow.png');
         this.load.image('leftArrow', 'assets/button/leftArrow.png');
 
