@@ -62,11 +62,11 @@ export class LobbyScene extends Phaser.Scene {
         this.load.image('tokioKey1', 'assets/keyFrame/tokioKey1.png');
         this.load.image('tokioKey2', 'assets/keyFrame/tokioKey2.png');
 
-        this.load.image('elf1', 'assets/elf/elf1.png');
-        this.load.image('elf2', 'assets/elf/elf2.png');
-        this.load.image('elf3', 'assets/elf/elf3.png');
-        this.load.image('elf4', 'assets/elf/elf4.png');
-        this.load.image('elf5', 'assets/elf/elf5.png');
+        this.load.spritesheet('elf-dance1', './assets/elf/elf_dance1.png', { frameWidth: 76, frameHeight: 124 });
+        this.load.spritesheet('elf-dance2', './assets/elf/elf_dance2.png', { frameWidth: 76, frameHeight: 124 });
+        this.load.spritesheet('elf-dance3', './assets/elf/elf_dance3.png', { frameWidth: 76, frameHeight: 124 });
+        this.load.spritesheet('elf-dance4', './assets/elf/elf_dance4.png', { frameWidth: 76, frameHeight: 124 });
+        this.load.spritesheet('elf-dance5', './assets/elf/elf_dance5.png', { frameWidth: 76, frameHeight: 124 });
 
         this.load.image('rightArrow', 'assets/button/rightArrow.png');
         this.load.image('leftArrow', 'assets/button/leftArrow.png');
@@ -88,7 +88,6 @@ export class LobbyScene extends Phaser.Scene {
 
         const connectToSpaceBtn = document.getElementById('connect-to-space');
         connectToSpaceBtn.addEventListener('click', () => {
-            console.log("connect");
             this.joinRoomContainer.setVisible(true);
             this.welcomeContainer.setVisible(false);
         });
@@ -96,7 +95,6 @@ export class LobbyScene extends Phaser.Scene {
         const createSpace = document.getElementById('create-space');
         createSpace.addEventListener('click', () => {
             socket.emit('createRoom');
-            console.log("create");
         });
     }
 
@@ -163,7 +161,6 @@ export class LobbyScene extends Phaser.Scene {
                 inputs.forEach(input => {
                     code += input.value;
                 });
-                console.log(code);
                 socket.emit('checkRoom', code);
             } else {
                 inputsContainer.style.display = 'flex';
@@ -203,7 +200,6 @@ export class LobbyScene extends Phaser.Scene {
             nameError.style.visibility = "visible";
         }
         else {
-            console.log(username);
 
             let roomCode = self.code;
             socket.emit('joinRoom', { roomCode, avatar: imgCount + 1, username });
@@ -287,7 +283,6 @@ export class LobbyScene extends Phaser.Scene {
         socket.on('currentPlayers', (players) => {
             createAvatarDialog(this, this.avatartFinishEditing, this.closeAvatarDialog, null, this.mobile);
             createExitMenu(this, null, null, this.mobile);
-            console.log("Received current players:", players);
 
             this.avatarDialog.destroy();
             this.welcomeContainer.destroy();
@@ -340,5 +335,40 @@ export class LobbyScene extends Phaser.Scene {
                 repeat: -1
             });
         }
+
+        this.anims.create({
+            key: 'elf_idle1',
+            frames: this.anims.generateFrameNumbers('elf-dance1', { start: 0, end: 11 }),
+            frameRate: 7,
+            repeat: -1
+        });
+
+        this.anims.create({
+            key: 'elf_idle2',
+            frames: this.anims.generateFrameNumbers('elf-dance2', { start: 0, end: 11 }),
+            frameRate: 7,
+            repeat: -1
+        });
+
+        this.anims.create({
+            key: 'elf_idle3',
+            frames: this.anims.generateFrameNumbers('elf-dance3', { start: 0, end: 11 }),
+            frameRate: 7,
+            repeat: -1
+        });
+
+        this.anims.create({
+            key: 'elf_idle4',
+            frames: this.anims.generateFrameNumbers('elf-dance4', { start: 0, end: 11 }),
+            frameRate: 7,
+            repeat: -1
+        });
+
+        this.anims.create({
+            key: 'elf_idle5',
+            frames: this.anims.generateFrameNumbers('elf-dance5', { start: 0, end: 11 }),
+            frameRate: 7,
+            repeat: -1
+        });
     }
 }

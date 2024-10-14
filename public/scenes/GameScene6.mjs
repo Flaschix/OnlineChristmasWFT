@@ -60,27 +60,7 @@ export class GameScene6 extends BaseScene {
         this.createInputHandlers();
 
         createAvatarDialog(this, this.enterNewSettingsInAvatarDialog, this.closeAvatarDialog, this.player.room, isMobile());
-
-
-        // if (!this.textures.exists(MAP_SETTINGS.MAP_FULL2)) {
-
-        //     this.loadPlusTexture(MAP_SETTINGS.MAP_FULL2, './assets/map/tample_full_2.png');
-
-        //     this.fullMap = false;
-        // }
     }
-
-    // createMap(map, mapFull) {
-    //     if (this.textures.exists(mapFull)) {
-    //         this.map = this.add.image(0, 0, mapFull).setOrigin(0, 0);
-    //         // this.map.setScale(MAP_SETTINGS.MAP_SCALE_4_3, MAP_SETTINGS.MAP_SCALE_4_3);
-    //         this.matter.world.setBounds(0, 0, this.map.width, this.map.height);
-    //     } else {
-    //         this.map = this.add.image(0, 0, map).setOrigin(0, 0);
-    //         this.map.setScale(2, 2);
-    //         this.matter.world.setBounds(0, 0, this.map.width * MAP_SETTINGS.MAP_SCALE_2, this.map.height * MAP_SETTINGS.MAP_SCALE_2);
-    //     }
-    // }
 
     createMap(map) {
         this.map = this.add.image(0, 0, map).setOrigin(0, 0);
@@ -131,29 +111,34 @@ export class GameScene6 extends BaseScene {
 
         parisNameplate.setScale(0.3);
 
-        const elf1 = this.matter.add.sprite(677 + 32, 1926 + 42 - 177, 'elf1', null, {
+        const elf1 = this.matter.add.sprite(677 + 32, 1926 + 42 - 177, 'elf-dance1', null, {
             label: `${LABEL_ID.FIRST_KEY}`,
             isStatic: true,
             isSensor: true
         });
 
-        const elf2 = this.matter.add.sprite(1453 + 32, 1376 + 42 - 177, 'elf4', null, {
+        const elf2 = this.matter.add.sprite(1453 + 32, 1376 + 42 - 177, 'elf-dance4', null, {
             label: `${LABEL_ID.SECOND_JOKE}`,
             isStatic: true,
             isSensor: true
         });
 
-        const elf3 = this.matter.add.sprite(767 + 32, 981 + 42 - 177, 'elf5', null, {
+        const elf3 = this.matter.add.sprite(767 + 32, 981 + 42 - 177, 'elf-dance2', null, {
             label: `${LABEL_ID.FIRST_JOKE}`,
             isStatic: true,
             isSensor: true
         });
 
-        const elf4 = this.matter.add.sprite(1683 + 32, 1002 + 42 - 177, 'elf3', null, {
+        const elf4 = this.matter.add.sprite(1683 + 32, 1002 + 42 - 177, 'elf-dance3', null, {
             label: `${LABEL_ID.SECOND_KEY}`,
             isStatic: true,
             isSensor: true
         });
+
+        elf1.play('elf_idle1');
+        elf2.play('elf_idle4');
+        elf3.play('elf_idle2');
+        elf4.play('elf_idle3');
 
         const arrBodies = [elf1, elf2, elf3, elf4, sydneyNameplate, parisNameplate];
 
@@ -407,13 +392,5 @@ export class GameScene6 extends BaseScene {
 
     update() {
         super.update();
-
-        // if (!this.fullMap) {
-        //     if (this.textures.exists(MAP_SETTINGS.MAP_FULL2)) {
-        //         this.fullMap = true;
-
-        //         this.loadedResolutionMap(MAP_SETTINGS.MAP_FULL2, 1, 1)
-        //     }
-        // }
     }
 }

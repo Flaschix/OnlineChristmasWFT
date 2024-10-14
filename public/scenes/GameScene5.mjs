@@ -135,29 +135,34 @@ export class GameScene5 extends BaseScene {
 
         beijingNameplate.setScale(0.3);
 
-        const elf1 = this.matter.add.sprite(610 + 32, 1280 + 42 - 322, 'elf1', null, {
+        const elf1 = this.matter.add.sprite(610 + 32, 1280 + 42 - 322, 'elf-dance1', null, {
             label: `${LABEL_ID.FIRST_KEY}`,
             isStatic: true,
             isSensor: true
         });
 
-        const elf2 = this.matter.add.sprite(858 + 32, 873 + 42 - 322, 'elf5', null, {
+        const elf2 = this.matter.add.sprite(858 + 32, 873 + 42 - 322, 'elf-dance5', null, {
             label: `${LABEL_ID.SECOND_JOKE}`,
             isStatic: true,
             isSensor: true
         });
 
-        const elf3 = this.matter.add.sprite(1505 + 32, 887 + 42 - 322, 'elf3', null, {
+        const elf3 = this.matter.add.sprite(1505 + 32, 887 + 42 - 322, 'elf-dance3', null, {
             label: `${LABEL_ID.FIRST_JOKE}`,
             isStatic: true,
             isSensor: true
         });
 
-        const elf4 = this.matter.add.sprite(1458 + 32, 1214 + 42 - 322, 'elf4', null, {
+        const elf4 = this.matter.add.sprite(1458 + 32, 1214 + 42 - 322, 'elf-dance4', null, {
             label: `${LABEL_ID.SECOND_KEY}`,
             isStatic: true,
             isSensor: true
         });
+
+        elf1.play('elf_idle1');
+        elf2.play('elf_idle5');
+        elf3.play('elf_idle3');
+        elf4.play('elf_idle4');
 
         const arrBodies = [elf1, elf2, elf3, elf4, rioNameplate2, beijingNameplate];
 

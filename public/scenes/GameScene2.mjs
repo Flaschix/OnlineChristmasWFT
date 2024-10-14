@@ -135,29 +135,34 @@ export class GameScene2 extends BaseScene {
         parisNameplate.setScale(0.3);
 
 
-        const elf1 = this.matter.add.sprite(851 + 32, 1546 + 42, 'elf1', null, {
+        const elf1 = this.matter.add.sprite(851 + 32, 1546 + 42, 'elf-dance1', null, {
             label: `${LABEL_ID.FIRST_KEY}`,
             isStatic: true,
             isSensor: true
         });
 
-        const elf2 = this.matter.add.sprite(478 + 32, 1039 + 42, 'elf2', null, {
+        const elf2 = this.matter.add.sprite(478 + 32, 1039 + 42, 'elf-dance5', null, {
             label: `${LABEL_ID.SECOND_JOKE}`,
             isStatic: true,
             isSensor: true
         });
 
-        const elf3 = this.matter.add.sprite(966 + 32, 729 + 42, 'elf4', null, {
+        const elf3 = this.matter.add.sprite(966 + 32, 729 + 42, 'elf-dance3', null, {
             label: `${LABEL_ID.FIRST_JOKE}`,
             isStatic: true,
             isSensor: true
         });
 
-        const elf4 = this.matter.add.sprite(1351 + 32, 1027 + 42, 'elf3', null, {
+        const elf4 = this.matter.add.sprite(1351 + 32, 1027 + 42, 'elf-dance2', null, {
             label: `${LABEL_ID.SECOND_KEY}`,
             isStatic: true,
             isSensor: true
         });
+
+        elf1.play('elf_idle1');
+        elf2.play('elf_idle5');
+        elf3.play('elf_idle3');
+        elf4.play('elf_idle2');
 
         const arrBodies = [elf1, elf2, elf3, elf4, tokyoNameplate, parisNameplate];
 

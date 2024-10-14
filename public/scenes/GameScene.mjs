@@ -61,6 +61,19 @@ export class GameScene extends BaseScene {
         createAvatarDialog(this, this.enterNewSettingsInAvatarDialog, this.closeAvatarDialog, this.player.room, isMobile());
 
 
+
+        // const note1 = this.add.sprite(1024, 1024, 'noteAnim1').setOrigin(0.5).setScale(0.8);
+        // const note2 = this.add.sprite(1124, 1024, 'noteAnim2').setOrigin(0.5).setScale(0.8);
+        // const note3 = this.add.sprite(1224, 1024, 'noteAnim3').setOrigin(0.5).setScale(0.8);
+        // const note4 = this.add.sprite(1324, 1024, 'noteAnim4').setOrigin(0.5).setScale(0.8);
+        // const note5 = this.add.sprite(1424, 1024, 'noteAnim5').setOrigin(0.5).setScale(0.8);
+        // note1.play(`elf_idle1`);
+        // note2.play(`elf_idle2`);
+        // note3.play(`elf_idle3`);
+        // note4.play(`elf_idle4`);
+        // note5.play(`elf_idle5`);
+
+
         // if (!this.textures.exists(MAP_SETTINGS.MAP_FULL1)) {
 
         //     this.loadPlusTexture(MAP_SETTINGS.MAP_FULL1, './assets/map/tample_full_1.png');
@@ -140,29 +153,34 @@ export class GameScene extends BaseScene {
         namePlateBijing.setScale(0.3);
 
 
-        const elf1 = this.matter.add.sprite(455 + 32, 1126 + 42 - 266, 'elf2', null, {
+        const elf1 = this.matter.add.sprite(455 + 32, 1126 + 42 - 266, 'elf-dance1', null, {
             label: `${LABEL_ID.FIRST_KEY}`,
             isStatic: true,
             isSensor: true
         });
 
-        const elf2 = this.matter.add.sprite(907 + 32, 818 + 42 - 266, 'elf3', null, {
+        const elf2 = this.matter.add.sprite(907 + 32, 818 + 42 - 266, 'elf-dance2', null, {
             label: `${LABEL_ID.SECOND_JOKE}`,
             isStatic: true,
             isSensor: true
         });
 
-        const elf3 = this.matter.add.sprite(851 + 32, 1378 + 42 - 266, 'elf1', null, {
+        const elf3 = this.matter.add.sprite(851 + 32, 1378 + 42 - 266, 'elf-dance3', null, {
             label: `${LABEL_ID.FIRST_JOKE}`,
             isStatic: true,
             isSensor: true
         });
 
-        const elf4 = this.matter.add.sprite(1641 + 32, 1254 + 42 - 266, 'elf4', null, {
+        const elf4 = this.matter.add.sprite(1641 + 32, 1254 + 42 - 266, 'elf-dance4', null, {
             label: `${LABEL_ID.SECOND_KEY}`,
             isStatic: true,
             isSensor: true
         });
+
+        elf1.play('elf_idle1');
+        elf2.play('elf_idle2');
+        elf3.play('elf_idle3');
+        elf4.play('elf_idle4');
 
         const arrBodies = [elf1, elf2, elf3, elf4, namePlateNewYork, namePlateBijing];
 
