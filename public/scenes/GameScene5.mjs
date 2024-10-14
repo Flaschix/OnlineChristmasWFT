@@ -120,42 +120,49 @@ export class GameScene5 extends BaseScene {
             isSensor: true
         })
 
-        const elf1 = this.matter.add.sprite(510 + 32, 1665 + 42, 'elf1', null, {
+        const elf1 = this.matter.add.sprite(500 + 32, 1665 + 42, 'elf-dance1', null, {
             label: `${LABEL_ID.FIRST_JOKE}`,
             isStatic: true,
             isSensor: true
         });
 
 
-        const elf2 = this.matter.add.sprite(605 + 32, 1637 + 42, 'elf3', null, {
+        const elf2 = this.matter.add.sprite(610 + 32, 1637 + 42, 'elf-dance3', null, {
             label: `${LABEL_ID.SECOND_JOKE}`,
             isStatic: true,
             isSensor: true
         });
 
-        const elf3 = this.matter.add.sprite(296 + 32, 1102 + 42, 'elf1', null, {
+        const elf3 = this.matter.add.sprite(290 + 32, 1102 + 42, 'elf-dance1', null, {
             label: `${LABEL_ID.SECOND_JOKE}`,
             isStatic: true,
             isSensor: true
         });
 
-        const elf4 = this.matter.add.sprite(424 + 32, 1032 + 42, 'elf2', null, {
+        const elf4 = this.matter.add.sprite(430 + 32, 1032 + 42, 'elf-dance2', null, {
             label: `${LABEL_ID.SECOND_KEY}`,
             isStatic: true,
             isSensor: true
         });
 
-        const elf5 = this.matter.add.sprite(1385 + 32, 1064 + 42, 'elf6', null, {
+        const elf5 = this.matter.add.sprite(1390 + 32, 1054 + 42, 'elf-dance4', null, {
             label: `${LABEL_ID.FIRST_JOKE}`,
             isStatic: true,
             isSensor: true
         });
 
-        const elf6 = this.matter.add.sprite(1373 + 32, 1186 + 42, 'elf5', null, {
+        const elf6 = this.matter.add.sprite(1368 + 32, 1240 + 42, 'elf-dance5', null, {
             label: `${LABEL_ID.FIRST_KEY}`,
             isStatic: true,
             isSensor: true
         });
+
+        elf1.play('elf_idle1');
+        elf2.play('elf_idle3');
+        elf3.play('elf_idle1');
+        elf4.play('elf_idle2');
+        elf5.play('elf_idle4');
+        elf6.play('elf_idle5');
 
 
         const arrBodies = [backDoor, elf1, elf2, elf3, elf4, elf5, elf6];

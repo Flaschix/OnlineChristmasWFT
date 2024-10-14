@@ -125,48 +125,56 @@ export class GameScene3 extends BaseScene {
             isStatic: true,
         })
 
-        const elf1 = this.matter.add.sprite(228 + 32, 1191 + 42, 'elf3', null, {
+        const elf1 = this.matter.add.sprite(220 + 32, 1191 + 42, 'elf-dance3', null, {
             label: `${LABEL_ID.FIRST_KEY}`,
             isStatic: true,
             isSensor: true
         });
 
 
-        const elf2 = this.matter.add.sprite(329 + 32, 1170 + 42, 'elf4', null, {
+        const elf2 = this.matter.add.sprite(339 + 32, 1170 + 42, 'elf-dance4', null, {
             label: `${LABEL_ID.SECOND_JOKE}`,
             isStatic: true,
             isSensor: true
         });
 
-        const elf3 = this.matter.add.sprite(340 + 32, 1285 + 42, 'elf2', null, {
+        const elf3 = this.matter.add.sprite(320 + 32, 1340 + 42, 'elf-dance2', null, {
             label: `${LABEL_ID.FIRST_JOKE}`,
             isStatic: true,
             isSensor: true
         });
 
-        const elf4 = this.matter.add.sprite(1457 + 32, 1294 + 42, 'elf5', null, {
+        const elf4 = this.matter.add.sprite(1450 + 32, 1294 + 42, 'elf-dance5', null, {
             label: `${LABEL_ID.SECOND_JOKE}`,
             isStatic: true,
             isSensor: true
         });
 
-        const elf5 = this.matter.add.sprite(1550 + 32, 1373 + 42, 'elf6', null, {
+        const elf5 = this.matter.add.sprite(1560 + 32, 1373 + 42, 'elf-dance3', null, {
             label: `${LABEL_ID.FIRST_JOKE}`,
             isStatic: true,
             isSensor: true
         });
 
-        const elf6 = this.matter.add.sprite(1282 + 32, 656 + 42, 'elf1', null, {
+        const elf6 = this.matter.add.sprite(1275 + 32, 656 + 42, 'elf-dance1', null, {
             label: `${LABEL_ID.SECOND_KEY}`,
             isStatic: true,
             isSensor: true
         });
 
-        const elf7 = this.matter.add.sprite(1390 + 32, 664 + 42, 'elf2', null, {
+        const elf7 = this.matter.add.sprite(1398 + 32, 664 + 42, 'elf-dance2', null, {
             label: `${LABEL_ID.FIRST_JOKE}`,
             isStatic: true,
             isSensor: true
         });
+
+        elf1.play('elf_idle3');
+        elf2.play('elf_idle4');
+        elf3.play('elf_idle2');
+        elf4.play('elf_idle5');
+        elf5.play('elf_idle3');
+        elf6.play('elf_idle1');
+        elf7.play('elf_idle2');
 
 
         const arrBodies = [backDoor, forwardDoor, elf1, elf2, elf3, elf4, elf5, elf6, elf7];
