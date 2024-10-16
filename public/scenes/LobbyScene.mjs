@@ -48,16 +48,7 @@ export class LobbyScene extends Phaser.Scene {
         this.load.spritesheet('character5', './assets/characterMap/character5.png', { frameWidth: 48, frameHeight: 64 });
         this.load.spritesheet('character6', './assets/characterMap/character6.png', { frameWidth: 48, frameHeight: 64 });
 
-
-        this.load.image('firstKey', 'assets/keyFrame/firstKey.png');
-        this.load.image('secondKey', 'assets/keyFrame/secondKey.png');
-        this.load.image('thirdKey', 'assets/keyFrame/thirdKey.png');
-        this.load.image('fourthKey', 'assets/keyFrame/fourthKey.png');
-        this.load.image('fivethKey', 'assets/keyFrame/fivethKey.png');
-        this.load.image('sixethKey', 'assets/keyFrame/sixethKey.png');
-        this.load.image('answer', 'assets/keyFrame/answer.png');
-        this.load.image('wrong', 'assets/keyFrame/wrong.png');
-        this.load.image('emptyKey', 'assets/keyFrame/emptyKey.png');
+        this.load.image('paper', 'assets/keyFrame/paper.png');
 
         this.load.image('rightArrow', 'assets/button/rightArrow.png');
         this.load.image('leftArrow', 'assets/button/leftArrow.png');
@@ -79,7 +70,6 @@ export class LobbyScene extends Phaser.Scene {
 
         const connectToSpaceBtn = document.getElementById('connect-to-space');
         connectToSpaceBtn.addEventListener('click', () => {
-            console.log("connect");
             this.joinRoomContainer.setVisible(true);
             this.welcomeContainer.setVisible(false);
         });
@@ -87,7 +77,6 @@ export class LobbyScene extends Phaser.Scene {
         const createSpace = document.getElementById('create-space');
         createSpace.addEventListener('click', () => {
             socket.emit('createRoom');
-            console.log("create");
         });
     }
 
@@ -154,7 +143,6 @@ export class LobbyScene extends Phaser.Scene {
                 inputs.forEach(input => {
                     code += input.value;
                 });
-                console.log(code);
                 socket.emit('checkRoom', code);
             } else {
                 inputsContainer.style.display = 'flex';
@@ -194,7 +182,6 @@ export class LobbyScene extends Phaser.Scene {
             nameError.style.visibility = "visible";
         }
         else {
-            console.log(username);
 
             let roomCode = self.code;
             socket.emit('joinRoom', { roomCode, avatar: imgCount + 1, username });
@@ -278,7 +265,6 @@ export class LobbyScene extends Phaser.Scene {
         socket.on('currentPlayers', (players) => {
             createAvatarDialog(this, this.avatartFinishEditing, this.closeAvatarDialog, null, this.mobile);
             createExitMenu(this, null, null, this.mobile);
-            console.log("Received current players:", players);
 
             this.avatarDialog.destroy();
             this.welcomeContainer.destroy();
