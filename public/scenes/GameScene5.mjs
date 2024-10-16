@@ -55,26 +55,8 @@ export class GameScene5 extends BaseScene {
 
         createAvatarDialog(this, this.enterNewSettingsInAvatarDialog, this.closeAvatarDialog, this.player.room, isMobile());
 
-
-        // if (!this.textures.exists(MAP_SETTINGS.MAP_FULL2)) {
-
-        //     this.loadPlusTexture(MAP_SETTINGS.MAP_FULL2, './assets/map/tample_full_2.png');
-
-        //     this.fullMap = false;
-        // }
     }
 
-    // createMap(map, mapFull) {
-    //     if (this.textures.exists(mapFull)) {
-    //         this.map = this.add.image(0, 0, mapFull).setOrigin(0, 0);
-    //         // this.map.setScale(MAP_SETTINGS.MAP_SCALE_4_3, MAP_SETTINGS.MAP_SCALE_4_3);
-    //         this.matter.world.setBounds(0, 0, this.map.width, this.map.height);
-    //     } else {
-    //         this.map = this.add.image(0, 0, map).setOrigin(0, 0);
-    //         this.map.setScale(2, 2);
-    //         this.matter.world.setBounds(0, 0, this.map.width * MAP_SETTINGS.MAP_SCALE_2, this.map.height * MAP_SETTINGS.MAP_SCALE_2);
-    //     }
-    // }
 
     createMap(map) {
         this.map = this.add.image(0, 0, map).setOrigin(0, 0);
@@ -225,6 +207,10 @@ export class GameScene5 extends BaseScene {
         this.answer.setScrollFactor(0);
         this.answer.setAlpha(0);
 
+        this.textA = this.add.text(490, 180, 'Общая форма собрана.\nПодсчитайте общее кол-во\nквадратов. ', { font: "bold 20px MyCustomFont", fill: '#000000', align: 'center' }).setScrollFactor(0).setDepth(2);
+        this.textA.setVisible(false);
+        this.textA.setAlpha(0);
+
         this.notEnought = this.add.image(this.cameras.main.width / 2, this.cameras.main.height / 2 + 10, 'notEnought');
         this.notEnought.setScale(0.7);
         this.notEnought.setVisible(false);
@@ -250,7 +236,7 @@ export class GameScene5 extends BaseScene {
         this.closeButton.on('pointerdown', () => {
             this.isOverlayVisible = false;
             this.tweens.add({
-                targets: [this.closeButton, this.overlayBackground, this.sixethKey, this.answer, this.notEnought, this.emptyKey],
+                targets: [this.closeButton, this.overlayBackground, this.sixethKey, this.answer, this.notEnought, this.emptyKey, this.textA],
                 alpha: 0,
                 duration: 500,
                 onComplete: () => {
@@ -265,6 +251,7 @@ export class GameScene5 extends BaseScene {
 
     createInputHandlers() {
         this.input.keyboard.on('keydown-X', () => {
+            if (this.avatarDialog.visible || this.exitContainer.visible) return;
             if (this.foldKeys.visible) return;
 
             if (this.isInZone) {
@@ -285,14 +272,14 @@ export class GameScene5 extends BaseScene {
                     this.showOverlay();
 
                     this.tweens.add({
-                        targets: [this.closeButton, this.overlayBackground, this.sixethKey, this.answer, this.notEnought, this.emptyKey],
+                        targets: [this.closeButton, this.overlayBackground, this.sixethKey, this.answer, this.notEnought, this.emptyKey, this.textA],
                         alpha: 1,
                         duration: 500
                     });
                 }
                 else {
                     this.tweens.add({
-                        targets: [this.closeButton, this.overlayBackground, this.sixethKey, this.answer, this.notEnought, this.emptyKey],
+                        targets: [this.closeButton, this.overlayBackground, this.sixethKey, this.answer, this.notEnought, this.emptyKey, this.textA],
                         alpha: 0,
                         duration: 500,
                         onComplete: () => {
@@ -334,7 +321,7 @@ export class GameScene5 extends BaseScene {
         }
 
         if (this.eventZone == LABEL_ID.ANSWER_KEY) {
-            if (this.fold.length == 6) this.answer.setVisible(true);
+            if (this.fold.length == 6) { this.answer.setVisible(true); this.textA.setVisible(true); }
             else this.notEnought.setVisible(true);
         }
 
@@ -346,7 +333,7 @@ export class GameScene5 extends BaseScene {
         this.isOverlayVisible = false
         if (this.sixethKey.visible) this.sixethKey.setVisible(false);
         if (this.emptyKey.visible) this.emptyKey.setVisible(false);
-        if (this.answer.visible) this.answer.setVisible(false);
+        if (this.answer.visible) { this.answer.setVisible(false); this.textA.setVisible(false); }
         if (this.notEnought.visible) this.notEnought.setVisible(false);
 
         this.overlayBackground.setVisible(false);
@@ -361,6 +348,7 @@ export class GameScene5 extends BaseScene {
     }
 
     itemInteract(context) {
+        if (context.avatarDialog.visible || context.exitContainer.visible) return;
         if (context.foldKeys.visible) return;
         if (context.isInZone) {
             context.player.setVelocity(0);
@@ -380,14 +368,14 @@ export class GameScene5 extends BaseScene {
                 context.showOverlay();
 
                 context.tweens.add({
-                    targets: [context.overlayBackground, context.closeButton, context.sixethKey, context.answer, context.notEnought, context.emptyKey],
+                    targets: [context.overlayBackground, context.closeButton, context.sixethKey, context.answer, context.notEnought, context.emptyKey, context.textA],
                     alpha: 1,
                     duration: 500
                 });
             }
             else {
                 context.tweens.add({
-                    targets: [context.overlayBackground, context.closeButton, context.sixethKey, context.answer, context.notEnought, context.emptyKey],
+                    targets: [context.overlayBackground, context.closeButton, context.sixethKey, context.answer, context.notEnought, context.emptyKey, context.textA],
                     alpha: 0,
                     duration: 500,
                     onComplete: () => {
@@ -404,13 +392,5 @@ export class GameScene5 extends BaseScene {
 
     update() {
         super.update();
-
-        // if (!this.fullMap) {
-        //     if (this.textures.exists(MAP_SETTINGS.MAP_FULL2)) {
-        //         this.fullMap = true;
-
-        //         this.loadedResolutionMap(MAP_SETTINGS.MAP_FULL2, 1, 1)
-        //     }
-        // }
     }
 }

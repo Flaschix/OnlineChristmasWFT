@@ -55,26 +55,8 @@ export class GameScene2 extends BaseScene {
 
         createAvatarDialog(this, this.enterNewSettingsInAvatarDialog, this.closeAvatarDialog, this.player.room, isMobile());
 
-
-        // if (!this.textures.exists(MAP_SETTINGS.MAP_FULL2)) {
-
-        //     this.loadPlusTexture(MAP_SETTINGS.MAP_FULL2, './assets/map/tample_full_2.png');
-
-        //     this.fullMap = false;
-        // }
     }
 
-    // createMap(map, mapFull) {
-    //     if (this.textures.exists(mapFull)) {
-    //         this.map = this.add.image(0, 0, mapFull).setOrigin(0, 0);
-    //         // this.map.setScale(MAP_SETTINGS.MAP_SCALE_4_3, MAP_SETTINGS.MAP_SCALE_4_3);
-    //         this.matter.world.setBounds(0, 0, this.map.width, this.map.height);
-    //     } else {
-    //         this.map = this.add.image(0, 0, map).setOrigin(0, 0);
-    //         this.map.setScale(2, 2);
-    //         this.matter.world.setBounds(0, 0, this.map.width * MAP_SETTINGS.MAP_SCALE_2, this.map.height * MAP_SETTINGS.MAP_SCALE_2);
-    //     }
-    // }
 
     createMap(map) {
         this.map = this.add.image(0, 0, map).setOrigin(0, 0);
@@ -291,6 +273,7 @@ export class GameScene2 extends BaseScene {
 
     createInputHandlers() {
         this.input.keyboard.on('keydown-X', () => {
+            if (this.avatarDialog.visible || this.exitContainer.visible) return;
             if (this.foldKeys.visible) return;
 
             if (this.isInZone) {
@@ -388,6 +371,7 @@ export class GameScene2 extends BaseScene {
     }
 
     itemInteract(context) {
+        if (context.avatarDialog.visible || context.exitContainer.visible) return;
         if (context.foldKeys.visible) return;
         if (context.isInZone) {
             context.player.setVelocity(0);
@@ -431,13 +415,5 @@ export class GameScene2 extends BaseScene {
 
     update() {
         super.update();
-
-        // if (!this.fullMap) {
-        //     if (this.textures.exists(MAP_SETTINGS.MAP_FULL2)) {
-        //         this.fullMap = true;
-
-        //         this.loadedResolutionMap(MAP_SETTINGS.MAP_FULL2, 1, 1)
-        //     }
-        // }
     }
 }
