@@ -48,17 +48,7 @@ export class LobbyScene extends Phaser.Scene {
         this.load.spritesheet('character5', './assets/characterMap/character5.png', { frameWidth: 48, frameHeight: 64 });
         this.load.spritesheet('character6', './assets/characterMap/character6.png', { frameWidth: 48, frameHeight: 64 });
 
-
-        this.load.image('answer1', 'assets/keyFrame/Answer 1.png');
-        this.load.image('answer2', 'assets/keyFrame/Answer 2.png');
-        this.load.image('answer3', 'assets/keyFrame/Answer 3.png');
-        this.load.image('answer4', 'assets/keyFrame/Answer 4.png');
-        this.load.image('answer5', 'assets/keyFrame/Answer 5.png');
-        this.load.image('answer6', 'assets/keyFrame/Answer 6.png');
-        this.load.image('answer7', 'assets/keyFrame/Answer 7.png');
-        this.load.image('answer8', 'assets/keyFrame/Answer 8.png');
-        this.load.image('answer9', 'assets/keyFrame/Answer 9.png');
-        this.load.image('answer10', 'assets/keyFrame/Answer 10.png');
+        this.load.image('paper', 'assets/keyFrame/paper.png');
 
         this.load.spritesheet('elf-dance1', './assets/elf/elf_dance1.png', { frameWidth: 76, frameHeight: 124 });
         this.load.spritesheet('elf-dance2', './assets/elf/elf_dance2.png', { frameWidth: 76, frameHeight: 124 });
