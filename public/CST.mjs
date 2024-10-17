@@ -22,3 +22,18 @@ export const LABEL_ID = {
     FIRST_JOKE: 55555555,
     SECOND_JOKE: 6666666,
 }
+
+export const myMap = new Map([
+    ['newyorkKey1', { x: 420, y: 250, text: '' }],
+    ['newyorkKey2', { x: 395, y: 250, text: '' }],
+    ['parisKey1', { x: 440, y: 250, text: '' }],
+    ['parisKey2', { x: 430, y: 270, text: '' }],
+    ['pekinKey1', { x: 400, y: 250, text: '' }],
+    ['pekinKey2', { x: 425, y: 270, text: '' }],
+    ['rioKey1', { x: 410, y: 290, text: '' }],
+    ['rioKey2', { x: 450, y: 330, text: '' }],
+    ['sidneyKey1', { x: 450, y: 330, text: '' }],
+    ['sidneyKey2', { x: 450, y: 330, text: '' }],
+    ['tokioKey1', { x: 450, y: 330, text: '' }],
+    ['tokioKey2', { x: 450, y: 330, text: '' }],
+]);

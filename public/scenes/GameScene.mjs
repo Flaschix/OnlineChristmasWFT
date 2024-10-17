@@ -11,8 +11,7 @@ import { CAMERA_MARGIN, CAMERA_MARGIN_MOBILE } from "../share/UICreator.mjs";
 import { createJoystick } from "../share/UICreator.mjs";
 import { createMobileXButton } from "../share/UICreator.mjs";
 
-import { MAP_SETTINGS } from "../share/UICreator.mjs";
-
+import { myMap } from "../CST.mjs";
 import { BaseScene } from "./BaseScene.mjs";
 
 export class GameScene extends BaseScene {
@@ -59,40 +58,7 @@ export class GameScene extends BaseScene {
         this.createInputHandlers();
 
         createAvatarDialog(this, this.enterNewSettingsInAvatarDialog, this.closeAvatarDialog, this.player.room, isMobile());
-
-
-
-        // const note1 = this.add.sprite(1024, 1024, 'noteAnim1').setOrigin(0.5).setScale(0.8);
-        // const note2 = this.add.sprite(1124, 1024, 'noteAnim2').setOrigin(0.5).setScale(0.8);
-        // const note3 = this.add.sprite(1224, 1024, 'noteAnim3').setOrigin(0.5).setScale(0.8);
-        // const note4 = this.add.sprite(1324, 1024, 'noteAnim4').setOrigin(0.5).setScale(0.8);
-        // const note5 = this.add.sprite(1424, 1024, 'noteAnim5').setOrigin(0.5).setScale(0.8);
-        // note1.play(`elf_idle1`);
-        // note2.play(`elf_idle2`);
-        // note3.play(`elf_idle3`);
-        // note4.play(`elf_idle4`);
-        // note5.play(`elf_idle5`);
-
-
-        // if (!this.textures.exists(MAP_SETTINGS.MAP_FULL1)) {
-
-        //     this.loadPlusTexture(MAP_SETTINGS.MAP_FULL1, './assets/map/tample_full_1.png');
-
-        //     this.fullMap = false;
-        // }
     }
-
-    // createMap(map, mapFull) {
-    //     if (this.textures.exists(mapFull)) {
-    //         this.map = this.add.image(0, 0, mapFull).setOrigin(0, 0);
-    //         // this.map.setScale(MAP_SETTINGS.MAP_SCALE_4_3, MAP_SETTINGS.MAP_SCALE_4_3);
-    //         this.matter.world.setBounds(0, 0, this.map.width, this.map.height);
-    //     } else {
-    //         this.map = this.add.image(0, 0, map).setOrigin(0, 0);
-    //         this.map.setScale(2, 2);
-    //         this.matter.world.setBounds(0, 0, this.map.width * MAP_SETTINGS.MAP_SCALE_2, this.map.height * MAP_SETTINGS.MAP_SCALE_2);
-    //     }
-    // }
 
     createMap(map) {
         this.map = this.add.image(0, 0, map).setOrigin(0, 0);
@@ -130,11 +96,6 @@ export class GameScene extends BaseScene {
         const highlightGraphics = this.add.graphics();
         highlightGraphics.lineStyle(2, 0x06ff01, 1);
         highlightGraphics.setDepth(0);
-
-        // const bodyDoor = this.matter.add.fromVertices(945.5 + 118.5, 767 + 115.5, '0.5 1 0.5 230.5 236 230.5 236 1', {
-        //     label: `${LABEL_ID.DOOR_FORWARD_ID}`,
-        //     isStatic: true,
-        // })
 
         const namePlateNewYork = this.matter.add.sprite(918, 1942 + 32 - 266, 'newyorkNameplate', null, {
             label: `${LABEL_ID.DOOR_FORWARD_ID}`,
@@ -219,6 +180,9 @@ export class GameScene extends BaseScene {
     }
 
     createOverlays() {
+        const a = myMap.get('parisKey1');
+        const b = myMap.get('parisKey2');
+
         this.pressX = this.add.image(this.player.x, this.player.y - 50, 'pressX');
         this.pressX.setDisplaySize(this.pressX.width, this.pressX.height);
         this.pressX.setVisible(false);
@@ -232,18 +196,19 @@ export class GameScene extends BaseScene {
         this.overlayBackground.setScrollFactor(0);
         this.overlayBackground.setAlpha(0); // Начальное значение прозрачности
 
-        this.firstKey = this.add.image(this.cameras.main.width / 2, this.cameras.main.height / 2 + 10, 'parisKey1');
-        this.firstKey.setScale(0.8);
+        this.paper = this.add.image(this.cameras.main.width / 2, this.cameras.main.height / 2 + 10, 'paper');
+        this.paper.setScale(0.8);
+        this.paper.setVisible(false);
+        this.paper.setDepth(2);
+        this.paper.setScrollFactor(0);
+        this.paper.setAlpha(0);
+
+        this.firstKey = this.add.text(a.x, a.y, `${a.text}`, { font: "normal 28px MyCustomFont", fill: '#000000', align: 'center' }).setScrollFactor(0).setDepth(2);
         this.firstKey.setVisible(false);
-        this.firstKey.setDepth(2);
-        this.firstKey.setScrollFactor(0);
         this.firstKey.setAlpha(0);
 
-        this.secondkey = this.add.image(this.cameras.main.width / 2, this.cameras.main.height / 2 + 10, 'parisKey2');
-        this.secondkey.setScale(0.8);
+        this.secondkey = this.add.text(b.x, b.y, `${b.text}`, { font: "normal 28px MyCustomFont", fill: '#000000', align: 'center' }).setScrollFactor(0).setDepth(2);
         this.secondkey.setVisible(false);
-        this.secondkey.setDepth(2);
-        this.secondkey.setScrollFactor(0);
         this.secondkey.setAlpha(0);
 
         this.firstJoke = this.add.image(this.cameras.main.width / 2, this.cameras.main.height / 2 + 10, 'joke1');
@@ -271,7 +236,7 @@ export class GameScene extends BaseScene {
         this.closeButton.on('pointerdown', () => {
             this.isOverlayVisible = false;
             this.tweens.add({
-                targets: [this.closeButton, this.overlayBackground, this.firstKey, this.secondkey, this.firstJoke, this.secondJoke],
+                targets: [this.closeButton, this.overlayBackground, this.firstKey, this.secondkey, this.firstJoke, this.secondJoke, this.paper],
                 alpha: 0,
                 duration: 500,
                 onComplete: () => {
@@ -286,6 +251,7 @@ export class GameScene extends BaseScene {
 
     createInputHandlers() {
         this.input.keyboard.on('keydown-X', () => {
+            if (this.avatarDialog.visible || this.exitContainer.visible) return;
             if (this.foldKeys.visible) return;
 
             if (this.isInZone) {
@@ -306,14 +272,14 @@ export class GameScene extends BaseScene {
                     this.showOverlay();
 
                     this.tweens.add({
-                        targets: [this.closeButton, this.overlayBackground, this.firstKey, this.secondkey, this.firstJoke, this.secondJoke],
+                        targets: [this.closeButton, this.overlayBackground, this.firstKey, this.secondkey, this.firstJoke, this.secondJoke, this.paper],
                         alpha: 1,
                         duration: 500
                     });
                 }
                 else {
                     this.tweens.add({
-                        targets: [this.closeButton, this.overlayBackground, this.firstKey, this.secondkey, this.firstJoke, this.secondJoke],
+                        targets: [this.closeButton, this.overlayBackground, this.firstKey, this.secondkey, this.firstJoke, this.secondJoke, this.paper],
                         alpha: 0,
                         duration: 500,
                         onComplete: () => {
@@ -345,15 +311,17 @@ export class GameScene extends BaseScene {
 
         if (this.eventZone == LABEL_ID.FIRST_KEY) {
             this.firstKey.setVisible(true);
-            if (this.fold.indexOf(this.firstKey.texture.key) == -1) {
-                this.mySocket.emitAddNewImg(this.firstKey.texture.key);
+            this.paper.setVisible(true);
+            if (this.fold.indexOf('parisKey1') == -1) {
+                this.mySocket.emitAddNewImg('parisKey1');
             }
         }
 
         if (this.eventZone == LABEL_ID.SECOND_KEY) {
             this.secondkey.setVisible(true);
-            if (this.fold.indexOf(this.secondkey.texture.key) == -1) {
-                this.mySocket.emitAddNewImg(this.secondkey.texture.key);
+            this.paper.setVisible(true);
+            if (this.fold.indexOf('parisKey2') == -1) {
+                this.mySocket.emitAddNewImg('parisKey2');
             }
         }
 
@@ -376,6 +344,7 @@ export class GameScene extends BaseScene {
         if (this.firstJoke.visible) this.firstJoke.setVisible(false);
         if (this.secondJoke.visible) this.secondJoke.setVisible(false);
 
+        this.paper.setVisible(false);
         this.overlayBackground.setVisible(false);
         this.closeButton.setVisible(false);
     }
@@ -388,6 +357,7 @@ export class GameScene extends BaseScene {
     }
 
     itemInteract(context) {
+        if (context.avatarDialog.visible || context.exitContainer.visible) return;
         if (context.foldKeys.visible) return;
         if (context.isInZone) {
             context.player.setVelocity(0);
@@ -407,14 +377,14 @@ export class GameScene extends BaseScene {
                 context.showOverlay();
 
                 context.tweens.add({
-                    targets: [context.overlayBackground, context.closeButton, context.firstKey, context.secondkey, context.firstJoke, context.secondJoke],
+                    targets: [context.overlayBackground, context.closeButton, context.firstKey, context.secondkey, context.firstJoke, context.secondJoke, context.paper],
                     alpha: 1,
                     duration: 500
                 });
             }
             else {
                 context.tweens.add({
-                    targets: [context.overlayBackground, context.closeButton, context.firstKey, context.secondkey, context.firstJoke, context.secondJoke],
+                    targets: [context.overlayBackground, context.closeButton, context.firstKey, context.secondkey, context.firstJoke, context.secondJoke, context.paper],
                     alpha: 0,
                     duration: 500,
                     onComplete: () => {
@@ -431,13 +401,5 @@ export class GameScene extends BaseScene {
 
     update() {
         super.update();
-
-        // if (!this.fullMap) {
-        //     if (this.textures.exists(MAP_SETTINGS.MAP_FULL1)) {
-        //         this.fullMap = true;
-
-        //         this.loadedResolutionMap(MAP_SETTINGS.MAP_FULL1, 1, 1)
-        //     }
-        // }
     }
 }

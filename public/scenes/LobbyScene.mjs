@@ -62,6 +62,8 @@ export class LobbyScene extends Phaser.Scene {
         this.load.image('tokioKey1', 'assets/keyFrame/tokioKey1.png');
         this.load.image('tokioKey2', 'assets/keyFrame/tokioKey2.png');
 
+        this.load.image('paper', 'assets/keyFrame/paper.png');
+
         this.load.spritesheet('elf-dance1', './assets/elf/elf_dance1.png', { frameWidth: 76, frameHeight: 124 });
         this.load.spritesheet('elf-dance2', './assets/elf/elf_dance2.png', { frameWidth: 76, frameHeight: 124 });
         this.load.spritesheet('elf-dance3', './assets/elf/elf_dance3.png', { frameWidth: 76, frameHeight: 124 });
