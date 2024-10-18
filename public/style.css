@@ -8,7 +8,7 @@ body {
 
 @font-face {
     font-family: 'MyCustomFont';
-    src: url('assets/font/MontserratAlternates-Regular.ttf') format('truetype');
+    src: url('assets/font/MontserratAlternates-Medium.ttf') format('truetype');
 }
 
 #lottieGif {
