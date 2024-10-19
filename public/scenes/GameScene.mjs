@@ -203,11 +203,11 @@ export class GameScene extends BaseScene {
         this.paper.setScrollFactor(0);
         this.paper.setAlpha(0);
 
-        this.firstKey = this.add.text(a.x, a.y, `${a.text}`, { font: "normal 28px MyCustomFont", fill: '#000000', align: 'center' }).setScrollFactor(0).setDepth(2);
+        this.firstKey = this.add.text(a.x, a.y, `${a.text}`, { font: "normal 36px MyCustomFont", fill: '#000000', align: 'center' }).setScrollFactor(0).setDepth(2);
         this.firstKey.setVisible(false);
         this.firstKey.setAlpha(0);
 
-        this.secondkey = this.add.text(b.x, b.y, `${b.text}`, { font: "normal 28px MyCustomFont", fill: '#000000', align: 'center' }).setScrollFactor(0).setDepth(2);
+        this.secondkey = this.add.text(b.x, b.y, `${b.text}`, { font: "normal 36px MyCustomFont", fill: '#000000', align: 'center' }).setScrollFactor(0).setDepth(2);
         this.secondkey.setVisible(false);
         this.secondkey.setAlpha(0);
 

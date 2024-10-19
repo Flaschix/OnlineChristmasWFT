@@ -11,7 +11,7 @@ import { CAMERA_MARGIN, CAMERA_MARGIN_MOBILE } from "../share/UICreator.mjs";
 import { createJoystick } from "../share/UICreator.mjs";
 import { createMobileXButton } from "../share/UICreator.mjs";
 
-import { MAP_SETTINGS } from "../share/UICreator.mjs";
+import { myMap } from "../CST.mjs";
 
 import { BaseScene } from "./BaseScene.mjs";
 
@@ -60,27 +60,7 @@ export class GameScene4 extends BaseScene {
         this.createInputHandlers();
 
         createAvatarDialog(this, this.enterNewSettingsInAvatarDialog, this.closeAvatarDialog, this.player.room, isMobile());
-
-
-        // if (!this.textures.exists(MAP_SETTINGS.MAP_FULL2)) {
-
-        //     this.loadPlusTexture(MAP_SETTINGS.MAP_FULL2, './assets/map/tample_full_2.png');
-
-        //     this.fullMap = false;
-        // }
     }
-
-    // createMap(map, mapFull) {
-    //     if (this.textures.exists(mapFull)) {
-    //         this.map = this.add.image(0, 0, mapFull).setOrigin(0, 0);
-    //         // this.map.setScale(MAP_SETTINGS.MAP_SCALE_4_3, MAP_SETTINGS.MAP_SCALE_4_3);
-    //         this.matter.world.setBounds(0, 0, this.map.width, this.map.height);
-    //     } else {
-    //         this.map = this.add.image(0, 0, map).setOrigin(0, 0);
-    //         this.map.setScale(2, 2);
-    //         this.matter.world.setBounds(0, 0, this.map.width * MAP_SETTINGS.MAP_SCALE_2, this.map.height * MAP_SETTINGS.MAP_SCALE_2);
-    //     }
-    // }
 
     createMap(map) {
         this.map = this.add.image(0, 0, map).setOrigin(0, 0);
@@ -199,6 +179,9 @@ export class GameScene4 extends BaseScene {
     }
 
     createOverlays() {
+        const a = myMap.get('rioKey1');
+        const b = myMap.get('rioKey2');
+
         this.pressX = this.add.image(this.player.x, this.player.y - 50, 'pressX');
         this.pressX.setDisplaySize(this.pressX.width, this.pressX.height);
         this.pressX.setVisible(false);
@@ -212,19 +195,19 @@ export class GameScene4 extends BaseScene {
         this.overlayBackground.setScrollFactor(0);
         this.overlayBackground.setAlpha(0); // Начальное значение прозрачности
 
-        //Первый ключ
-        this.firstKey = this.add.image(this.cameras.main.width / 2, this.cameras.main.height / 2 + 10, 'rioKey1');
-        this.firstKey.setScale(0.8);
+        this.paper = this.add.image(this.cameras.main.width / 2, this.cameras.main.height / 2 + 10, 'paper');
+        this.paper.setScale(0.8);
+        this.paper.setVisible(false);
+        this.paper.setDepth(2);
+        this.paper.setScrollFactor(0);
+        this.paper.setAlpha(0);
+
+        this.firstKey = this.add.text(a.x, a.y, `${a.text}`, { font: "normal 36px MyCustomFont", fill: '#000000', align: 'center' }).setScrollFactor(0).setDepth(2);
         this.firstKey.setVisible(false);
-        this.firstKey.setDepth(2);
-        this.firstKey.setScrollFactor(0);
         this.firstKey.setAlpha(0);
 
-        this.secondKey = this.add.image(this.cameras.main.width / 2, this.cameras.main.height / 2 + 10, 'rioKey2');
-        this.secondKey.setScale(0.8);
+        this.secondKey = this.add.text(b.x, b.y, `${b.text}`, { font: "normal 36px MyCustomFont", fill: '#000000', align: 'center' }).setScrollFactor(0).setDepth(2);
         this.secondKey.setVisible(false);
-        this.secondKey.setDepth(2);
-        this.secondKey.setScrollFactor(0);
         this.secondKey.setAlpha(0);
 
         this.firstJoke = this.add.image(this.cameras.main.width / 2, this.cameras.main.height / 2 + 10, 'joke9');
@@ -253,7 +236,7 @@ export class GameScene4 extends BaseScene {
         this.closeButton.on('pointerdown', () => {
             this.isOverlayVisible = false;
             this.tweens.add({
-                targets: [this.closeButton, this.overlayBackground, this.firstKey, this.secondKey, this.firstJoke, this.secondJoke],
+                targets: [this.closeButton, this.overlayBackground, this.firstKey, this.secondKey, this.firstJoke, this.secondJoke, this.paper],
                 alpha: 0,
                 duration: 500,
                 onComplete: () => {
@@ -289,14 +272,14 @@ export class GameScene4 extends BaseScene {
                     this.showOverlay();
 
                     this.tweens.add({
-                        targets: [this.closeButton, this.overlayBackground, this.firstKey, this.secondKey, this.firstJoke, this.secondJoke],
+                        targets: [this.closeButton, this.overlayBackground, this.firstKey, this.secondKey, this.firstJoke, this.secondJoke, this.paper],
                         alpha: 1,
                         duration: 500
                     });
                 }
                 else {
                     this.tweens.add({
-                        targets: [this.closeButton, this.overlayBackground, this.firstKey, this.secondKey, this.firstJoke, this.secondJoke],
+                        targets: [this.closeButton, this.overlayBackground, this.firstKey, this.secondKey, this.firstJoke, this.secondJoke, this.paper],
                         alpha: 0,
                         duration: 500,
                         onComplete: () => {
@@ -328,15 +311,17 @@ export class GameScene4 extends BaseScene {
 
         if (this.eventZone == LABEL_ID.FIRST_KEY) {
             this.firstKey.setVisible(true);
-            if (this.fold.indexOf(this.firstKey.texture.key) == -1) {
-                this.mySocket.emitAddNewImg(this.firstKey.texture.key);
+            this.paper.setVisible(true);
+            if (this.fold.indexOf('rioKey1') == -1) {
+                this.mySocket.emitAddNewImg('rioKey1');
             }
         }
 
         if (this.eventZone == LABEL_ID.SECOND_KEY) {
             this.secondKey.setVisible(true);
-            if (this.fold.indexOf(this.secondKey.texture.key) == -1) {
-                this.mySocket.emitAddNewImg(this.secondKey.texture.key);
+            this.paper.setVisible(true);
+            if (this.fold.indexOf('rioKey2') == -1) {
+                this.mySocket.emitAddNewImg('rioKey2');
             }
         }
 
@@ -359,6 +344,7 @@ export class GameScene4 extends BaseScene {
         if (this.firstJoke.visible) this.firstJoke.setVisible(false);
         if (this.secondJoke.visible) this.secondJoke.setVisible(false);
 
+        this.paper.setVisible(false);
         this.overlayBackground.setVisible(false);
         this.closeButton.setVisible(false);
     }
@@ -391,14 +377,14 @@ export class GameScene4 extends BaseScene {
                 context.showOverlay();
 
                 context.tweens.add({
-                    targets: [context.overlayBackground, context.closeButton, context.firstKey, context.secondKey, context.firstJoke, context.secondJoke],
+                    targets: [context.overlayBackground, context.closeButton, context.firstKey, context.secondKey, context.firstJoke, context.secondJoke, context.paper],
                     alpha: 1,
                     duration: 500
                 });
             }
             else {
                 context.tweens.add({
-                    targets: [context.overlayBackground, context.closeButton, context.firstKey, context.secondKey, context.firstJoke, context.secondJoke],
+                    targets: [context.overlayBackground, context.closeButton, context.firstKey, context.secondKey, context.firstJoke, context.secondJoke, context.paper],
                     alpha: 0,
                     duration: 500,
                     onComplete: () => {
@@ -415,13 +401,5 @@ export class GameScene4 extends BaseScene {
 
     update() {
         super.update();
-
-        // if (!this.fullMap) {
-        //     if (this.textures.exists(MAP_SETTINGS.MAP_FULL2)) {
-        //         this.fullMap = true;
-
-        //         this.loadedResolutionMap(MAP_SETTINGS.MAP_FULL2, 1, 1)
-        //     }
-        // }
     }
 }

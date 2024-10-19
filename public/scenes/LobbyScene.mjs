@@ -48,20 +48,6 @@ export class LobbyScene extends Phaser.Scene {
         this.load.spritesheet('character5', './assets/characterMap/character5.png', { frameWidth: 48, frameHeight: 64 });
         this.load.spritesheet('character6', './assets/characterMap/character6.png', { frameWidth: 48, frameHeight: 64 });
 
-
-        this.load.image('newyorkKey1', 'assets/keyFrame/newyorkKey1.png');
-        this.load.image('newyorkKey2', 'assets/keyFrame/newyorkKey2.png');
-        this.load.image('parisKey1', 'assets/keyFrame/parisKey1.png');
-        this.load.image('parisKey2', 'assets/keyFrame/parisKey2.png');
-        this.load.image('pekinKey1', 'assets/keyFrame/pekinKey1.png');
-        this.load.image('pekinKey2', 'assets/keyFrame/pekinKey2.png');
-        this.load.image('rioKey1', 'assets/keyFrame/rioKey1.png');
-        this.load.image('rioKey2', 'assets/keyFrame/rioKey2.png');
-        this.load.image('sidneyKey1', 'assets/keyFrame/sidneyKey1.png');
-        this.load.image('sidneyKey2', 'assets/keyFrame/sidneyKey2.png');
-        this.load.image('tokioKey1', 'assets/keyFrame/tokioKey1.png');
-        this.load.image('tokioKey2', 'assets/keyFrame/tokioKey2.png');
-
         this.load.image('paper', 'assets/keyFrame/paper.png');
 
         this.load.spritesheet('elf-dance1', './assets/elf/elf_dance1.png', { frameWidth: 76, frameHeight: 124 });
