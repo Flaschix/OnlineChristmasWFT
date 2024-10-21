@@ -2,7 +2,7 @@ import { CST, LABEL_ID } from "../CST.mjs";
 
 import { socket } from "../CST.mjs";
 
-import { createUILeftMobile } from "../share/UICreator.mjs";
+import { cd, createUILeftMobile, decrypt } from "../share/UICreator.mjs";
 import { createUI } from "../share/UICreator.mjs";
 import { createAvatarDialog } from "../share/UICreator.mjs";
 import { isMobile } from "../share/UICreator.mjs";
@@ -18,7 +18,7 @@ import { BaseScene } from "./BaseScene.mjs";
 export class GameScene5 extends BaseScene {
     constructor() {
         super(CST.SCENE.GAMESCENE5);
-
+        this.cd = cd;
     }
 
     preload() {
@@ -190,7 +190,7 @@ export class GameScene5 extends BaseScene {
         this.title1.setVisible(false);
         this.title1.setAlpha(0);
 
-        this.sixethKey = this.add.text(a.x, 250, `${a.text}`, { font: "normal 18px MyCustomFont", fill: '#000000', align: 'center' }).setScrollFactor(0).setDepth(2);
+        this.sixethKey = this.add.text(a.x, 250, `${decrypt(a.text)}`, { font: "normal 18px MyCustomFont", fill: '#000000', align: 'center' }).setScrollFactor(0).setDepth(2);
         this.sixethKey.setVisible(false);
         this.sixethKey.setAlpha(0);
 
@@ -198,7 +198,7 @@ export class GameScene5 extends BaseScene {
         this.title2.setVisible(false);
         this.title2.setAlpha(0);
 
-        this.answer = this.add.text(b.x, 250, `${b.text}`, { font: "normal 18px MyCustomFont", fill: '#000000', align: 'center' }).setScrollFactor(0).setDepth(2);
+        this.answer = this.add.text(b.x, 250, `${decrypt(b.text)}`, { font: "normal 18px MyCustomFont", fill: '#000000', align: 'center' }).setScrollFactor(0).setDepth(2);
         this.answer.setVisible(false);
         this.answer.setAlpha(0);
 
@@ -206,22 +206,8 @@ export class GameScene5 extends BaseScene {
         this.title3.setVisible(false);
         // this.title3.setAlpha(0);
 
-        this.wrong = this.add.text(c.x, 250, `${c.text}`, { font: "normal 18px MyCustomFont", fill: '#000000', align: 'center' }).setScrollFactor(0).setDepth(2);
+        this.wrong = this.add.text(c.x, 250, `${decrypt(c.text)}`, { font: "normal 18px MyCustomFont", fill: '#000000', align: 'center' }).setScrollFactor(0).setDepth(2);
         this.wrong.setVisible(false);
-        // this.wrong.setAlpha(0);
-
-        // this.answer = this.add.image(this.cameras.main.width / 2, this.cameras.main.height / 2 + 10, 'answer');
-        // this.answer.setScale(0.85);
-        // this.answer.setVisible(false);
-        // this.answer.setDepth(2);
-        // this.answer.setScrollFactor(0);
-        // this.answer.setAlpha(0);
-
-        // this.wrong = this.add.image(this.cameras.main.width / 2, this.cameras.main.height / 2 + 10, 'wrong');
-        // this.wrong.setScale(0.85);
-        // this.wrong.setVisible(false);
-        // this.wrong.setDepth(2);
-        // this.wrong.setScrollFactor(0);
         // this.wrong.setAlpha(0);
 
         this.emptyKey = this.add.image(this.cameras.main.width / 2, this.cameras.main.height / 2, 'emptyKey');
@@ -502,7 +488,7 @@ export class GameScene5 extends BaseScene {
             });
         });
 
-        const correctCode = '367793';
+        const correctCode = this.cd;
         let correctFlag = true;
 
         const joinRoomConnect = document.getElementById('join-room-connect');

@@ -2,7 +2,7 @@ import { CST, LABEL_ID } from "../CST.mjs";
 
 import { socket } from "../CST.mjs";
 
-import { createUILeftMobile } from "../share/UICreator.mjs";
+import { createUILeftMobile, decrypt } from "../share/UICreator.mjs";
 import { createUI } from "../share/UICreator.mjs";
 import { createAvatarDialog } from "../share/UICreator.mjs";
 import { isMobile } from "../share/UICreator.mjs";
@@ -201,7 +201,7 @@ export class GameScene3 extends BaseScene {
         this.title1.setVisible(false);
         this.title1.setAlpha(0);
 
-        this.fourthKey = this.add.text(a.x, 250, `${a.text}`, { font: "normal 18px MyCustomFont", fill: '#000000', align: 'center' }).setScrollFactor(0).setDepth(2);
+        this.fourthKey = this.add.text(a.x, 250, `${decrypt(a.text)}`, { font: "normal 18px MyCustomFont", fill: '#000000', align: 'center' }).setScrollFactor(0).setDepth(2);
         this.fourthKey.setVisible(false);
         this.fourthKey.setAlpha(0);
 
