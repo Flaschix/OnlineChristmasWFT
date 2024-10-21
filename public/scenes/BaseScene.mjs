@@ -1,7 +1,6 @@
-import { CST, LABEL_ID } from "../CST.mjs";
 import { socket } from "../CST.mjs";
 import { SocketWorker } from "../share/SocketWorker.mjs";
-import { createUIBottom, createUITop, createUIRight, createUILeftMobile, createUI, createExitMenu, createAvatarDialog, isMobile, createJoystick, createMobileXButton, HEIGHT_PRESS_X, MAP_SETTINGS, CAMERA_MARGIN, CAMERA_MARGIN_MOBILE } from "../share/UICreator.mjs";
+import { createUIBottom, createUITop, createUIRight, decrypt, createExitMenu, isMobile, HEIGHT_PRESS_X } from "../share/UICreator.mjs";
 import { AnimationControl } from "../share/AnimationControl.mjs";
 import { PlayersController } from "../share/PlayerController.mjs";
 import { myMap } from "../CST.mjs";
@@ -233,7 +232,7 @@ export class BaseScene extends Phaser.Scene {
             context.leftArrow.setVisible(false);
             context.rightArrow.setVisible(true);
 
-            context.foldText.setText(c.text);
+            context.foldText.setText(decrypt(c.text));
             context.foldText.setX(c.x);
             context.foldText.setY(c.y);
 
@@ -243,7 +242,7 @@ export class BaseScene extends Phaser.Scene {
             const c = myMap.get(context.fold[0])
             context.foldImgNumber = 0;
 
-            context.foldText.setText(c.text);
+            context.foldText.setText(decrypt(c.text));
             context.foldText.setX(c.x);
             context.foldText.setY(c.y);
 
@@ -268,7 +267,7 @@ export class BaseScene extends Phaser.Scene {
                 duration: 250,
                 onComplete: () => {
                     try {
-                        this.foldText.setText(myMap.get(this.fold[this.foldImgNumber]).text);
+                        this.foldText.setText(decrypt(myMap.get(this.fold[this.foldImgNumber]).text));
                         this.foldText.setX(myMap.get(this.fold[this.foldImgNumber]).x);
                         this.foldText.setY(myMap.get(this.fold[this.foldImgNumber]).y);
                         this.tweens.add({
@@ -295,7 +294,7 @@ export class BaseScene extends Phaser.Scene {
                 duration: 250,
                 onComplete: () => {
                     try {
-                        this.foldText.setText(myMap.get(this.fold[this.foldImgNumber]).text);
+                        this.foldText.setText(decrypt(myMap.get(this.fold[this.foldImgNumber]).text));
                         this.foldText.setX(myMap.get(this.fold[this.foldImgNumber]).x);
                         this.foldText.setY(myMap.get(this.fold[this.foldImgNumber]).y);
                         this.tweens.add({
