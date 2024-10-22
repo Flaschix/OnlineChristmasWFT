@@ -25,3 +25,5 @@ export const LABEL_ID = {
     EMPTY_KEY: 4555745,
     ANSWER_KEY: 3436367
 }
+
+export const aswr = 'Сдьгв чсупг фсдугрг.\nТсзфълхгмхи сдьии нсо-ес\nнегзугхсе.'

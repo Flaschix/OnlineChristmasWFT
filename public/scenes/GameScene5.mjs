@@ -1,8 +1,8 @@
-import { CST, LABEL_ID } from "../CST.mjs";
+import { CST, LABEL_ID, aswr } from "../CST.mjs";
 
 import { socket } from "../CST.mjs";
 
-import { createUILeftMobile } from "../share/UICreator.mjs";
+import { createUILeftMobile, decrypt } from "../share/UICreator.mjs";
 import { createUI } from "../share/UICreator.mjs";
 import { createAvatarDialog } from "../share/UICreator.mjs";
 import { isMobile } from "../share/UICreator.mjs";
@@ -10,8 +10,6 @@ import { CAMERA_MARGIN, CAMERA_MARGIN_MOBILE } from "../share/UICreator.mjs";
 
 import { createJoystick } from "../share/UICreator.mjs";
 import { createMobileXButton } from "../share/UICreator.mjs";
-
-import { MAP_SETTINGS } from "../share/UICreator.mjs";
 
 import { BaseScene } from "./BaseScene.mjs";
 
@@ -207,7 +205,7 @@ export class GameScene5 extends BaseScene {
         this.answer.setScrollFactor(0);
         this.answer.setAlpha(0);
 
-        this.textA = this.add.text(490, 180, 'Общая форма собрана.\nПодсчитайте общее кол-во\nквадратов. ', { font: "bold 20px MyCustomFont", fill: '#000000', align: 'center' }).setScrollFactor(0).setDepth(2);
+        this.textA = this.add.text(490, 180, `${decrypt(aswr)}`, { font: "bold 20px MyCustomFont", fill: '#000000', align: 'center' }).setScrollFactor(0).setDepth(2);
         this.textA.setVisible(false);
         this.textA.setAlpha(0);
 
