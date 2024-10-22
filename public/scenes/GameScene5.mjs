@@ -2,7 +2,7 @@ import { CST, LABEL_ID } from "../CST.mjs";
 
 import { socket } from "../CST.mjs";
 
-import { cd, createUILeftMobile, decrypt } from "../share/UICreator.mjs";
+import { cd, createUILeftMobile, decrypt, decryptN } from "../share/UICreator.mjs";
 import { createUI } from "../share/UICreator.mjs";
 import { createAvatarDialog } from "../share/UICreator.mjs";
 import { isMobile } from "../share/UICreator.mjs";
@@ -18,7 +18,7 @@ import { BaseScene } from "./BaseScene.mjs";
 export class GameScene5 extends BaseScene {
     constructor() {
         super(CST.SCENE.GAMESCENE5);
-        this.cd = cd;
+        this.cd = decryptN(cd);
     }
 
     preload() {

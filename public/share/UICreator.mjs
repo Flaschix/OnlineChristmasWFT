@@ -62,7 +62,7 @@ export function createUILeftMobile(context, settingsImg, exitImg, foldImg, setti
     });
 }
 
-export const cd = '367793';
+export const cd = '690026';
 
 export function createUI(self, eventSettingsBtn, eventExitBtn, eventFoldBtn) {
 
@@ -131,6 +131,16 @@ export function createExitMenu(self, eventLeaveBtn, eventCloseBtn, isMobile) {
 
 
     self.exitContainer.setVisible(false);
+}
+
+export function decryptN(text) {
+    return text.split('').map(char => {
+        const code = char.charCodeAt(0);
+        if (code >= 48 && code <= 57) {
+            return String.fromCharCode(((code - 48 - 3 + 10) % 10) + 48);
+        }
+        return char;
+    }).join('');
 }
 
 export function createAvatarDialog(self, eventConfirmBtn, eventCloseBtn, room, isMobile, nameButton) {
