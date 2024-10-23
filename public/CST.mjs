@@ -26,4 +26,4 @@ export const LABEL_ID = {
     ANSWER_KEY: 3436367
 }
 
-export const aswr = 'Сдьгв чсупг фсдугрг.\nТсзфълхгмхи сдьии нсо-ес\nнегзугхсе.'
+export const aswr = 'Wkh ryhudoo vkdsh lv dvvhpeohg.\nFrxqw wkh wrwdo qxpehu ri\nvtxduhv.'
